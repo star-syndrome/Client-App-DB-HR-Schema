@@ -1,0 +1,6 @@
+spring:
+    application:
+        name: ThymeLeaf
+
+server:
+    port: 8300        

@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+    background-image: linear-gradient(90deg, rgba(188,194,193,1) 0%, rgba(202,203,192,1) 100%);
+}
+
+.navbar {
+    background: radial-gradient(circle, rgba(169,194,227,1) 15%, rgba(255,247,205,1) 85%);
+}
