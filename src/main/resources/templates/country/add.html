@@ -68,18 +68,15 @@
 
                             <!-- Region ID -->
                             <div class="input-group mb-3">
-                                <span
-                                class="input-group-text border border-dark bg-light fw-bold"
-                                id="inputGroup-sizing-default">
-                                Region ID</span>
-                                <input
-                                type="text"
-                                class="form-control border border-dark"
-                                aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default"
-                                th:field="*{regionId}"
-                                required> 
-                                </div> 
+                                <label class="input-group-text border-dark bg-light fw-bold" for="inputGroupSelect01">Region</label>
+                                <select class="form-select border border-dark" id="inputGroupSelect01" th:field="*{regionId}" required>
+                                  <option value="" selected>Choose Region</option>
+                                  <option
+                                  th:each="region : ${regions}"
+                                  th:value="${region.id}"
+                                  th:text="${region.name}">
+                                  </option>
+                                </select>
                             </div>
                         
                             <div class="d-flex gap-3">

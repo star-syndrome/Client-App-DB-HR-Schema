@@ -2,6 +2,7 @@ package org.metrodataacademy.Thymeleaf.controllers;
 
 import org.metrodataacademy.Thymeleaf.models.Country;
 import org.metrodataacademy.Thymeleaf.services.CountryService;
+import org.metrodataacademy.Thymeleaf.services.RegionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,9 @@ public class CountryController {
     
     @Autowired
     private CountryService countryService;
+
+    @Autowired
+    private RegionService regionService;
 
     @GetMapping(
         produces = MediaType.APPLICATION_JSON_VALUE
@@ -41,7 +45,8 @@ public class CountryController {
         path = "/create",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public String createView(Country country) {
+    public String createView(Country country, Model model) {
+        model.addAttribute("regions", regionService.getAll());
         return "country/add";
     }
 
