@@ -11,3 +11,7 @@ body {
 .navbar {
     background: radial-gradient(circle, rgba(169,194,227,1) 15%, rgba(255,247,205,1) 85%);
 }
+
+.card {
+    width: 25rem;
+}

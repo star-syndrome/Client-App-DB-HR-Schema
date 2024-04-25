@@ -1,6 +1,9 @@
 spring:
     application:
         name: ThymeLeaf
-
+    mvc:
+        hiddenmethod:
+            filter:
+                enabled: true
 server:
     port: 8300        

@@ -63,8 +63,12 @@ public class RegionServiceImplement implements RegionService {
 
     @Override
     public Region deleteRegion(Integer id) {
-        return restTemplate.exchange("http://localhost:8080/region/delete/" + id, HttpMethod.DELETE,
-        null, new ParameterizedTypeReference<Region>() {}
-        ).getBody();
+        return restTemplate
+        .exchange(
+            "http://localhost:8080/region/delete/" + id,
+            HttpMethod.DELETE,
+            null,
+            new ParameterizedTypeReference<Region>() {})
+            .getBody();
     }   
 }

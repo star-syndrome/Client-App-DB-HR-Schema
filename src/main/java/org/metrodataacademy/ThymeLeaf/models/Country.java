@@ -1,0 +1,17 @@
+package org.metrodataacademy.ThymeLeaf.models;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Country {
+    
+    private Integer id;
+    private String code;
+    private String name;
+    private Integer regionId;
+    private String regionName;
+}

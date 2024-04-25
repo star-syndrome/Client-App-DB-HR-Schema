@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -57,22 +59,22 @@ public class RegionController {
         path = "/update/{id}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public String updateView(@PathVariable Integer id, Model model) {
+    public String updateView(@PathVariable Integer id, Model model, Region region) {
         model.addAttribute("region", regionService.getById(id));
         return "region/update";
     }
 
-    @PostMapping(
-        path = "/update",
+    @PutMapping(
+        path = "/{id}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public String updateRegion(Region region) {
-        regionService.updateRegion(region.getId(), region);
+    public String updateRegion(@PathVariable Integer id, Region region) {
+        regionService.updateRegion(id, region);
         return "redirect:/region";
     }   
 
-    @GetMapping(
-        path = "/delete/{id}",
+    @DeleteMapping(
+        path = "/{id}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
     public String deleteRegion(@PathVariable Integer id) {

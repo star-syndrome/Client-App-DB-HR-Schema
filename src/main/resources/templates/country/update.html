@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Region</title>
+    <title>Update Country</title>
 
     <!-- Bootstrap -->
     <link
@@ -32,29 +32,45 @@
 
     <!-- Card -->
     <div class="container p-3 m-auto d-flex justify-content-center">
-            <div class="card text-center border border-dark border-3 rounded-3">
-                <div class="card-header fw-bold border-bottom border-3 border-dark">
-                    <h3 class="m-auto fw-bold">Updating a Region</h3></div>
-                    <div class="card-body">
-                        <form
-                            th:action="@{/region/{id} (id=${region.id})}"
-                            th:method="PUT"
-                            th:object="${region}">
+        <div class="card text-center border border-dark border-3 rounded-3">
+            <div class="card-header fw-bold border-bottom border-3 border-dark">
+                <h3 class="m-auto fw-bold">Updating a Country</h3>
+            </div>
+                <div class="card-body">
+                    <form
+                        th:action="@{/country/{id} (id=${country.id})}"
+                        th:method="PUT"
+                        th:object="${country}">
+                        <div class="d-flex flex-wrap m-auto">
+
+                            <!-- Country Code -->
                             <div class="input-group mb-3">
                                 <span
-                                class="input-group-text border border-dark"
+                                class="input-group-text border border-dark bg-light fw-bold"
                                 id="inputGroup-sizing-default">
-                                <h6 class="m-auto fw-bold">Region Name</h6></span>
+                                Country Code</span>
+                                <input
+                                type="text"
+                                class="form-control border border-dark"
+                                th:field="*{code}">
+                            </div>
+    
+                            <!-- Country Name -->
+                            <div class="input-group mb-3">
+                                <span
+                                class="input-group-text border border-dark bg-light fw-bold"
+                                id="inputGroup-sizing-default">
+                                Country Name</span>
                                 <input
                                 type="text"
                                 class="form-control border border-dark"
                                 aria-label="Sizing example input"
                                 aria-describedby="inputGroup-sizing-default"
-                                th:field="*{name}"
-                                required>
-                            </div>
+                                th:field="*{name}">
+                            </div> 
+                        </div>
                             <div class="d-flex gap-3">
-                                <a href="/region" class="btn btn-secondary">Back</a>
+                                <a href="/country" class="btn btn-secondary">Back</a>
                                 <button type="submit" class="btn btn-info">Update
                         </button>
                     </div>

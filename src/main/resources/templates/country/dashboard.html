@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Region</title>
+    <title>Country</title>
 
     <!-- Bootstrap -->
     <link
@@ -28,16 +28,16 @@
             <a class="navbar-brand">
                 <img
                 src="https://recruit-me.metrodataacademy.id/images/logo_landscape.png"
-                alt="Metrodata Academy" width="250px">
+                alt="Metrodata Academy" width="200px">
             </a>
         </div>
     </nav>
 
-    <!-- Manage Regions -->
+    <!-- Manage Countries -->
     <div class="container bg-light pb-3 border border-dark border-3 rounded-5">
         <div class="d-flex flex-wrap m-3 p-3 justify-content-between">
-            <h3>Manage Regions</h3>
-            <a href="region/create" class="btn btn-success">Add Region</a>
+            <h3>Manage Countries</h3>
+            <a href="country/create" class="btn btn-success">Add Country</a>
         </div>
             <div class="container">    
                 <table class="table table-bordered table-striped table-hover text-center table-light">
@@ -49,29 +49,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="region, index : ${regions}">
+                        <tr th:each="country, index : ${countries}">
                             <td th:text="${index.count}"></td>
-                            <td th:text="${region.name}"></td>
+                            <td th:text="${country.name}"></td>
                             <td class="d-flex m-auto gap-4 justify-content-center">
                                 <a
-                                th:href="@{/region/{id} (id=${region.id})}"
+                                th:href="@{/country/{id} (id=${country.id})}"
                                 class="btn btn-primary"
-                                th:title="'Detail ' + ${region.name}">
+                                th:title="'Detail ' + ${country.name}">
                                 <span class="material-symbols-rounded"> info </span>
                                 </a>
-                                <a th:href="@{/region/update/{id} (id=${region.id})}"
+                                <a th:href="@{/country/update/{id} (id=${country.id})}"
                                 class="btn btn-warning"
-                                th:title="'Update ' + ${region.name}">
+                                th:title="'Update ' + ${country.name}">
                                 <span class="material-symbols-rounded"> sync </span>
                                 </a>
                                 <form
-                                th:action="@{/region/{id} (id=${region.id})}"
+                                th:action="@{/country/{id} (id=${country.id})}"
                                 th:method="DELETE">
                                     <button
                                     class="btn btn-danger"
                                     type="submit"
-                                    th:title="'Delete ' + ${region.name}"
-                                    onclick="return confirm('Are you sure want to delete this region?')"
+                                    th:title="'Delete ' + ${country.name}"
+                                    onclick="return confirm('Are you sure want to delete this country?')"
                                     >
                                     <span class="material-symbols-rounded"> delete </span>
                                 </button>
