@@ -1,4 +1,4 @@
-package org.metrodataacademy.ThymeLeaf;
+package org.metrodataacademy.Thymeleaf;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

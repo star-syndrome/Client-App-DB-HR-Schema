@@ -1,7 +1,7 @@
-package org.metrodataacademy.ThymeLeaf.controllers;
+package org.metrodataacademy.Thymeleaf.controllers;
 
-import org.metrodataacademy.ThymeLeaf.models.Region;
-import org.metrodataacademy.ThymeLeaf.services.RegionService;
+import org.metrodataacademy.Thymeleaf.models.Region;
+import org.metrodataacademy.Thymeleaf.services.RegionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;

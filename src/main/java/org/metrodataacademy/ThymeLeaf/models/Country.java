@@ -1,4 +1,4 @@
-package org.metrodataacademy.ThymeLeaf.models;
+package org.metrodataacademy.Thymeleaf.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

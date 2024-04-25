@@ -1,8 +1,8 @@
-package org.metrodataacademy.ThymeLeaf.services;
+package org.metrodataacademy.Thymeleaf.services;
 
 import java.util.List;
 
-import org.metrodataacademy.ThymeLeaf.models.Region;
+import org.metrodataacademy.Thymeleaf.models.Region;
 
 public interface RegionService {
 

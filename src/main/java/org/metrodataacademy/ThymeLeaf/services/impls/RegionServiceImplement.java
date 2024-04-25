@@ -1,9 +1,9 @@
-package org.metrodataacademy.ThymeLeaf.services.impls;
+package org.metrodataacademy.Thymeleaf.services.impls;
 
 import java.util.List;
 
-import org.metrodataacademy.ThymeLeaf.models.Region;
-import org.metrodataacademy.ThymeLeaf.services.RegionService;
+import org.metrodataacademy.Thymeleaf.models.Region;
+import org.metrodataacademy.Thymeleaf.services.RegionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;

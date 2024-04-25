@@ -1,4 +1,4 @@
-package org.metrodataacademy.ThymeLeaf.configurations;
+package org.metrodataacademy.Thymeleaf.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

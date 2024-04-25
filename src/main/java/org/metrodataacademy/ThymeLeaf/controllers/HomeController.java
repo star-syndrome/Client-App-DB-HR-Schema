@@ -1,4 +1,4 @@
-package org.metrodataacademy.ThymeLeaf.controllers;
+package org.metrodataacademy.Thymeleaf.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

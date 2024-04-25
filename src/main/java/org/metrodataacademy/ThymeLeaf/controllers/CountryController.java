@@ -1,7 +1,7 @@
-package org.metrodataacademy.ThymeLeaf.controllers;
+package org.metrodataacademy.Thymeleaf.controllers;
 
-import org.metrodataacademy.ThymeLeaf.models.Country;
-import org.metrodataacademy.ThymeLeaf.services.CountryService;
+import org.metrodataacademy.Thymeleaf.models.Country;
+import org.metrodataacademy.Thymeleaf.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;

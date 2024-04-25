@@ -1,8 +1,8 @@
-package org.metrodataacademy.ThymeLeaf.services;
+package org.metrodataacademy.Thymeleaf.services;
 
 import java.util.List;
 
-import org.metrodataacademy.ThymeLeaf.models.Country;
+import org.metrodataacademy.Thymeleaf.models.Country;
 
 public interface CountryService {
 
