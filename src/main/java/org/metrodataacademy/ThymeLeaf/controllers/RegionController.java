@@ -1,6 +1,8 @@
 package org.metrodataacademy.Thymeleaf.controllers;
 
-import org.metrodataacademy.Thymeleaf.models.Region;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.CreateRegionRequest;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.UpdateRegionRequest;
+import org.metrodataacademy.Thymeleaf.models.entities.Region;
 import org.metrodataacademy.Thymeleaf.services.RegionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -26,6 +28,7 @@ public class RegionController {
         produces = MediaType.APPLICATION_JSON_VALUE
     )
     public String getAllRegion(Model model) {
+        model.addAttribute("isActive", "region");
         model.addAttribute("regions", regionService.getAll());
         return "region/dashboard";
     }
@@ -34,15 +37,16 @@ public class RegionController {
         path = "/create",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public String createView(Region region) {
+    public String createView(CreateRegionRequest regionRequest, Model model) {
+        model.addAttribute("isActive", "region");
         return "region/add";
     }
 
     @PostMapping(
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public String createRegion(Region region) {
-        regionService.createRegion(region);
+    public String createRegion(CreateRegionRequest regionRequest) {
+        regionService.createRegion(regionRequest);
         return "redirect:/region";
     }
 
@@ -51,6 +55,7 @@ public class RegionController {
         produces = MediaType.APPLICATION_JSON_VALUE
     )
     public String getById(@PathVariable Integer id, Model model) {
+        model.addAttribute("isActive", "region");
         model.addAttribute("region", regionService.getById(id));
         return "region/details";
     }
@@ -60,6 +65,7 @@ public class RegionController {
         produces = MediaType.APPLICATION_JSON_VALUE
     )
     public String updateView(@PathVariable Integer id, Model model, Region region) {
+        model.addAttribute("isActive", "region");
         model.addAttribute("region", regionService.getById(id));
         return "region/update";
     }
@@ -68,8 +74,8 @@ public class RegionController {
         path = "/{id}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public String updateRegion(@PathVariable Integer id, Region region) {
-        regionService.updateRegion(id, region);
+    public String updateRegion(@PathVariable Integer id, UpdateRegionRequest regionRequest) {
+        regionService.updateRegion(id, regionRequest);
         return "redirect:/region";
     }   
 

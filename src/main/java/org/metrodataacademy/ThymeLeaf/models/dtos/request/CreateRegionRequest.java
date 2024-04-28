@@ -1,4 +1,4 @@
-package org.metrodataacademy.Thymeleaf.models;
+package org.metrodataacademy.Thymeleaf.models.dtos.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Region {
-
-    private Integer id;
-    private String name; 
+public class CreateRegionRequest {
+    
+    private String name;
 }

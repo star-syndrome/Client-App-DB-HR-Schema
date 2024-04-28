@@ -1,4 +1,4 @@
-package org.metrodataacademy.Thymeleaf.models;
+package org.metrodataacademy.Thymeleaf.models.dtos.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,11 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Country {
+public class RegionResponse {
     
     private Integer id;
-    private String code;
     private String name;
-    private Integer regionId;
-    private String regionName;
 }

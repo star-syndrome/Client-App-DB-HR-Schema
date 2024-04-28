@@ -2,17 +2,19 @@ package org.metrodataacademy.Thymeleaf.services;
 
 import java.util.List;
 
-import org.metrodataacademy.Thymeleaf.models.Country;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.CreateCountryRequest;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.UpdateCountryRequest;
+import org.metrodataacademy.Thymeleaf.models.dtos.response.CountryResponse;
 
 public interface CountryService {
 
-    List<Country> getAll();
+    List<CountryResponse> getAll();
 
-    Country getById(Integer id);
+    CountryResponse getById(Integer id);
     
-    Country createCountry(Country country);
+    CountryResponse createCountry(CreateCountryRequest countryRequest);
 
-    Country updateCountry(Integer id, Country country);
+    CountryResponse updateCountry(Integer id, UpdateCountryRequest countryRequest);
 
-    Country deleteCountry(Integer id);
+    CountryResponse deleteCountry(Integer id);
 }

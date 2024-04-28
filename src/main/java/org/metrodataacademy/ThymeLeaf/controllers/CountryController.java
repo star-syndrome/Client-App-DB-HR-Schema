@@ -1,6 +1,7 @@
 package org.metrodataacademy.Thymeleaf.controllers;
 
-import org.metrodataacademy.Thymeleaf.models.Country;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.CreateCountryRequest;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.UpdateCountryRequest;
 import org.metrodataacademy.Thymeleaf.services.CountryService;
 import org.metrodataacademy.Thymeleaf.services.RegionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ public class CountryController {
         produces = MediaType.APPLICATION_JSON_VALUE
     )
     public String getAll(Model model) {
+        model.addAttribute("isActive", "country");
         model.addAttribute("countries", countryService.getAll());
         return "country/dashboard";
     }
@@ -37,6 +39,7 @@ public class CountryController {
         produces = MediaType.APPLICATION_JSON_VALUE
     )
     public String getById(@PathVariable Integer id, Model model) {
+        model.addAttribute("isActive", "country");
         model.addAttribute("country", countryService.getById(id));
         return "country/details";
     }
@@ -45,7 +48,8 @@ public class CountryController {
         path = "/create",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public String createView(Country country, Model model) {
+    public String createView(CreateCountryRequest countryRequest, Model model) {
+        model.addAttribute("isActive", "country");
         model.addAttribute("regions", regionService.getAll());
         return "country/add";
     }
@@ -53,8 +57,8 @@ public class CountryController {
     @PostMapping(
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public String createCountry(Country country) {
-        countryService.createCountry(country);
+    public String createCountry(CreateCountryRequest countryRequest) {
+        countryService.createCountry(countryRequest);
         return "redirect:/country";
     }
 
@@ -62,7 +66,8 @@ public class CountryController {
         path = "/update/{id}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public String updateView(@PathVariable Integer id, Model model, Country country) {
+    public String updateView(@PathVariable Integer id, Model model, UpdateCountryRequest countryRequest) {
+        model.addAttribute("isActive", "country");
         model.addAttribute("country", countryService.getById(id));
         return "country/update";
     }
@@ -71,8 +76,8 @@ public class CountryController {
         path = "/{id}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public String updateCountry(@PathVariable Integer id, Country country) {
-        countryService.updateCountry(id, country);
+    public String updateCountry(@PathVariable Integer id, UpdateCountryRequest countryRequest) {
+        countryService.updateCountry(id, countryRequest);
         return "redirect:/country";
     }
     

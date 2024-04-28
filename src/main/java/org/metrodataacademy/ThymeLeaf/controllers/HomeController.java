@@ -9,7 +9,8 @@ public class HomeController {
     
     @GetMapping
     public String home(Model model) {
-        model.addAttribute("name", "Metrodata Academy");
+        model.addAttribute("isActive", "home");
+        model.addAttribute("name", "Star Syndrome");
         return "index";
     }
 }

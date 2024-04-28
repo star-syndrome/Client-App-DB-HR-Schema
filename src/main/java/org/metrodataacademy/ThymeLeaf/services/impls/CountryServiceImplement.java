@@ -2,7 +2,9 @@ package org.metrodataacademy.Thymeleaf.services.impls;
 
 import java.util.List;
 
-import org.metrodataacademy.Thymeleaf.models.Country;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.CreateCountryRequest;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.UpdateCountryRequest;
+import org.metrodataacademy.Thymeleaf.models.dtos.response.CountryResponse;
 import org.metrodataacademy.Thymeleaf.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -17,57 +19,59 @@ public class CountryServiceImplement implements CountryService{
     @Autowired
     private RestTemplate restTemplate;
 
+    private final String url = "http://localhost:8080/country";
+
     @Override
-    public List<Country> getAll() {
+    public List<CountryResponse> getAll() {
         return restTemplate
         .exchange(
-            "http://localhost:8080/country/getAll",
+            url + "/getAll",
             HttpMethod.GET,
             null,
-            new ParameterizedTypeReference<List<Country>>() {})
+            new ParameterizedTypeReference<List<CountryResponse>>() {})
             .getBody();
     }
 
     @Override
-    public Country getById(Integer id) {
+    public CountryResponse getById(Integer id) {
         return restTemplate
         .exchange(
-            "http://localhost:8080/country/"+ id,
+            url + "/"+ id,
             HttpMethod.GET,
             null,
-            new ParameterizedTypeReference<Country>() {})
+            CountryResponse.class)
             .getBody();
     }
     
     @Override
-    public Country createCountry(Country country) {
+    public CountryResponse createCountry(CreateCountryRequest countryRequest) {
         return restTemplate
         .exchange(
-            "http://localhost:8080/country/create",
+            url + "/create",
             HttpMethod.POST,
-            new HttpEntity<Country>(country),
-            new ParameterizedTypeReference<Country>() {})
+            new HttpEntity<CreateCountryRequest>(countryRequest),
+            CountryResponse.class)
             .getBody();
     }
 
     @Override
-    public Country updateCountry(Integer id, Country country) {
+    public CountryResponse updateCountry(Integer id, UpdateCountryRequest countryRequest) {
         return restTemplate
         .exchange(
-            "http://localhost:8080/country/update/" + id,
+            url + "/update/" + id,
             HttpMethod.PUT,
-            new HttpEntity<Country>(country),
-            new ParameterizedTypeReference<Country>() {})
+            new HttpEntity<UpdateCountryRequest>(countryRequest),
+            CountryResponse.class)
             .getBody();
     }
 
     @Override
-    public Country deleteCountry(Integer id) {
+    public CountryResponse deleteCountry(Integer id) {
         return restTemplate.exchange(
-            "http://localhost:8080/country/delete/" + id,
+            url + "/delete/" + id,
             HttpMethod.DELETE,
             null,
-            new ParameterizedTypeReference<Country>() {})
+            CountryResponse.class)
             .getBody();
     }   
 }

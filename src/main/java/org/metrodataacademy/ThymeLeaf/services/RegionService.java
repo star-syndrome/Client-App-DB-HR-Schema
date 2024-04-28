@@ -2,17 +2,19 @@ package org.metrodataacademy.Thymeleaf.services;
 
 import java.util.List;
 
-import org.metrodataacademy.Thymeleaf.models.Region;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.CreateRegionRequest;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.UpdateRegionRequest;
+import org.metrodataacademy.Thymeleaf.models.dtos.response.RegionResponse;
 
 public interface RegionService {
 
-    List<Region> getAll();
+    List<RegionResponse> getAll();
 
-    Region createRegion(Region region);
+    RegionResponse createRegion(CreateRegionRequest regionRequest);
 
-    Region getById(Integer id);
+    RegionResponse getById(Integer id);
 
-    Region updateRegion(Integer id, Region region);
+    RegionResponse updateRegion(Integer id, UpdateRegionRequest regionRequest);
 
-    Region deleteRegion(Integer id);
+    RegionResponse deleteRegion(Integer id);
 }

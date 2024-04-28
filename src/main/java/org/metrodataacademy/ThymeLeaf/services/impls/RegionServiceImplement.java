@@ -2,7 +2,9 @@ package org.metrodataacademy.Thymeleaf.services.impls;
 
 import java.util.List;
 
-import org.metrodataacademy.Thymeleaf.models.Region;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.CreateRegionRequest;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.UpdateRegionRequest;
+import org.metrodataacademy.Thymeleaf.models.dtos.response.RegionResponse;
 import org.metrodataacademy.Thymeleaf.services.RegionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -17,58 +19,60 @@ public class RegionServiceImplement implements RegionService {
     @Autowired
     private RestTemplate restTemplate;
 
+    private final String url = "http://localhost:8080/region";
+
     @Override
-    public List<Region> getAll() {
+    public List<RegionResponse> getAll() {
         return restTemplate
         .exchange(
-            "http://localhost:8080/region/getAll",
+            url + "/getAll",
             HttpMethod.GET,
             null,
-            new ParameterizedTypeReference<List<Region>>() {})
+            new ParameterizedTypeReference<List<RegionResponse>>() {})
             .getBody();
     }
 
     @Override
-    public Region createRegion(Region region) {
+    public RegionResponse createRegion(CreateRegionRequest regionRequest) {
         return restTemplate
         .exchange(
-            "http://localhost:8080/region/create",
+            url + "/create",
             HttpMethod.POST,
-            new HttpEntity<Region>(region),
-            new ParameterizedTypeReference<Region>() {})
+            new HttpEntity<CreateRegionRequest>(regionRequest),
+            RegionResponse.class)
             .getBody();
     }
 
     @Override
-    public Region getById(Integer id) {
+    public RegionResponse getById(Integer id) {
         return restTemplate
         .exchange(
-            "http://localhost:8080/region/" + id,
+            url + "/" + id,
             HttpMethod.GET,
             null,
-            new ParameterizedTypeReference<Region>() {})
+            RegionResponse.class)
             .getBody();
     }
 
     @Override
-    public Region updateRegion(Integer id, Region region) {
+    public RegionResponse updateRegion(Integer id, UpdateRegionRequest regionRequest) {
         return restTemplate
         .exchange(
-            "http://localhost:8080/region/update/" + id,
+            url + "/update/" + id,
             HttpMethod.PUT,
-            new HttpEntity<Region>(region),
-            new ParameterizedTypeReference<Region>() {})
+            new HttpEntity<UpdateRegionRequest>(regionRequest),
+            RegionResponse.class)
             .getBody();
     }
 
     @Override
-    public Region deleteRegion(Integer id) {
+    public RegionResponse deleteRegion(Integer id) {
         return restTemplate
         .exchange(
-            "http://localhost:8080/region/delete/" + id,
+            url + "/delete/" + id,
             HttpMethod.DELETE,
             null,
-            new ParameterizedTypeReference<Region>() {})
+            RegionResponse.class)
             .getBody();
     }   
 }
