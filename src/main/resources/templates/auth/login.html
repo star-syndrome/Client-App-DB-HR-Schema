@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/main}"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <section class="login d-flex" layout:fragment="content">
+        <!-- Login Form -->
+        <div class="login-left w-50 h-100">
+            <div class="row justify-content-center align-content-center h-100">
+                <div class="col-6">
+                    <div class="header">
+                        <p class="name fs-5">
+                            <img th:src="@{/img/star.png}" alt="Star" width="50px">
+                            Star Syndrome
+                        </p>
+                        <h1>Welcome Back</h1>
+                        <p>Welcome back! Please enter your details.</p>
+                    </div>
+        
+                    <div class="login-form">
+                        <!-- Username -->
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter your username">
+        
+                        <!-- Password -->
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+        
+                        <!-- Forgot Password -->
+                        <a href="#" class="text-decoration-none d-block mt-2 mb-2 text-center">Forgot password?</a>
+                        
+                        <!-- Button Sign In -->
+                        <button class="btn sign-in mt-1" type="submit">Sign In</button>
+                        
+                        <!-- Direct to Register -->
+                        <div class="text-center mt-2">
+                            <span>Don't have an account?
+                                <a href="#" class="text-decoration-none">Sign up here!</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel -->
+        <div class="login-right w-50 h-100 d-flex justify-content-center align-content-center">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img th:src="@{/img/travel.png}" class="d-block mt-5 ms-5" width="80%" height="100%" alt="Logo1">
+                    </div>
+                    <div class="carousel-item">
+                        <img th:src="@{/img/international.png}" class="d-block mt-5 ms-5" width="80%" height="100%" alt="Logo2">
+                    </div>
+                    <div class="carousel-item">
+                        <img th:src="@{/img/maps.png}" class="d-block mt-5 ms-5" width="80%" height="100%" alt="Logo3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

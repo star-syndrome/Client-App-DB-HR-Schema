@@ -289,8 +289,8 @@ function validationsCountryCodeCreate(code) {
 
 // Validations for Country Code Update
 function validationsCountryCodeUpdate(code) {
-    if (code.length > 2) {
-        return "Country Code Too Long";
+    if (code.length > 2 || code.length === 1) {
+        return "Cannot Update Country Code!";
     } else {
         return "LFG!"
     }
