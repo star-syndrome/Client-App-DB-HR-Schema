@@ -21,7 +21,7 @@
                     data-bs-toggle="modal"
                     data-bs-target="#create">
                     Add Country
-            </button>
+                </button>
 			</div>
 			<div class="container">
 				<table
@@ -88,6 +88,7 @@
                                 <div class="input-group mb-3">
                                     <label
                                         class="input-group-text border-dark bg-light fw-bold"
+                                        for="create-region"
                                         >Region
                                     </label>
                                     <select
@@ -210,6 +211,7 @@
                             Update of Country</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        <form>
                             <div class="modal-body">
                                 <!-- Country ID -->
                                 <input type="hidden" id="update-id" disabled>
@@ -223,7 +225,8 @@
                                     <input
                                         type="text"
                                         class="form-control border border-dark"
-                                        id="update-code">
+                                        id="update-code"
+                                        required>
                                 </div>
 
                                 <!-- Country Name -->
@@ -237,22 +240,24 @@
                                         class="form-control border border-dark"
                                         aria-label="Sizing example input"
                                         aria-describedby="inputGroup-sizing-default"
-                                        id="update-name">
+                                        id="update-name"
+                                        required>
                                 </div>
 
                                 <!-- Region -->
                                 <div class="input-group mb-3">
-                                    <span
-                                        class="input-group-text border border-dark bg-light fw-bold"
-                                        id="inputGroup-sizing-default">Region
-                                    </span>
-                                    <input
-                                        type="text"
-                                        class="form-control border border-dark"
-                                        aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default"
+                                    <label
+                                        class="input-group-text border-dark bg-light fw-bold"
+                                        for="update-region-name"
+                                        >Region
+                                    </label>
+                                    <select
+                                        class="form-select border border-dark"
                                         id="update-region-name"
-                                        disabled>
+                                        required>
+
+                                        <option value="" selected>Choose Region</option>
+                                    </select>
                                 </div>
                             </div>
                                 <div class="modal-footer border-top border-3 border-dark">

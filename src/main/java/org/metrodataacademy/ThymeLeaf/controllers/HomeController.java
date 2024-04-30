@@ -10,7 +10,14 @@ public class HomeController {
     @GetMapping
     public String home(Model model) {
         model.addAttribute("isActive", "home");
-        model.addAttribute("name", "Star Syndrome");
+        return "index";
+    }
+
+    @GetMapping(
+        path = "/home"
+    )
+    public String dashboard(Model model) {
+        model.addAttribute("isActive", "home");
         return "index";
     }
 }

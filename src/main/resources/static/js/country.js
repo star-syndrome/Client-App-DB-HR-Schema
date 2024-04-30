@@ -6,7 +6,7 @@ $(document).ready(() => {
             dataSrc: "",
         },
         columnDefs: [
-            {className: "text-center", targets: "_all", searchable: false, orderable: false}
+            {className: "text-center", targets: "_all", searchable: true, orderable: true}
         ],
         order: [[1, 'asc']],
         columns: [
@@ -14,7 +14,7 @@ $(document).ready(() => {
             {data: "code"},
             {data: "name"},
             {data: null,
-            render: (data) =>{
+            render: (data) => {
                 return /*html*/ `
                 <div class="d-flex m-auto gap-4 justify-content-center">
                     <button
@@ -58,6 +58,7 @@ $(document).ready(() => {
     });
 });
 
+
 // Get All Regions For Create Country
 $.ajax({
     type: "GET",
@@ -75,6 +76,7 @@ $.ajax({
     }
 });
 
+
 // Create Country
 $("#create-country").click(function (e) { 
     e.preventDefault();
@@ -83,8 +85,8 @@ $("#create-country").click(function (e) {
     let valueName = $("#create-name").val();
     let valueRegion = $("#create-region").val();
 
-    let validateCode = validationsCountryCodeCreate(valueCode);
-    let validateName = validationsCountryNameCreate(valueName);
+    let validateCode = validationsCountryCode(valueCode);
+    let validateName = validationsCountryName(valueName);
     
     if (validateCode !== "LFG!") {
         Swal.fire({
@@ -105,6 +107,7 @@ $("#create-country").click(function (e) {
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "JSON",
+            beforeSend: addCSRFToken(),
             url: "/api/country/create",
             data: JSON.stringify({
                 code: valueCode,
@@ -136,8 +139,9 @@ $("#create-country").click(function (e) {
                 });
             }
         });
-    };
+    }
 });
+
 
 // Find Country By ID
 function findById(id) {
@@ -156,7 +160,8 @@ function findById(id) {
             console.log(error);
         }
     });
-};
+}
+
 
 // Get Data Country for Update
 function beforeUpdateCountry(id) {
@@ -169,13 +174,32 @@ function beforeUpdateCountry(id) {
             $("#update-id").val(response.id);
             $("#update-code").val(response.code);
             $("#update-name").val(response.name);
-            $("#update-region-name").val(response.regionName);
+            $("#create-region").val(response.regionName);
         },
         error: function (error) {
             console.log(error);
         }
     });
-};
+}
+
+
+// Get All Regions For Update Country
+$.ajax({
+    type: "GET",
+    contentType: "application/json; charset=utf-8",
+    dataType: "JSON",
+    url: "/api/region/getAll",
+    success: function (response) {
+        $.each(response, function (index, region) {
+            $("#update-region-name").append($("<option>")
+            .text(region.name).val(region.id));
+        });
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});
+
 
 // Update Country
 $("#update-country").click(function (e) { 
@@ -184,9 +208,11 @@ $("#update-country").click(function (e) {
     let valueId = $("#update-id").val();
     let valueCode = $("#update-code").val();
     let valueName = $("#update-name").val();
+    let valueRegion = $("#update-region-name").val();
 
-    let validateCode = validationsCountryCodeUpdate(valueCode);
-    let validateName = validationsCountryNameUpdate(valueName);
+    let validateCode = validationsCountryCode(valueCode);
+    let validateName = validationsCountryName(valueName);
+
     if (validateCode !== "LFG!") {
         Swal.fire({
             position: "center",
@@ -208,10 +234,12 @@ $("#update-country").click(function (e) {
             type: "PUT",
             contentType: "application/json; charset=utf-8",
             dataType: "JSON",
+            beforeSend: addCSRFToken(),
             url: "/api/country/update/" + valueId,
             data: JSON.stringify({
                 code: valueCode,
-                name: valueName
+                name: valueName,
+                regionId: valueRegion
             }),
             success: function (response) {
                 $("#update").modal("hide");
@@ -259,6 +287,7 @@ function deleteCountry(id) {
                 type: "DELETE",
                 url: "/api/country/delete/" + id,
                 dataType: "JSON",
+                beforeSend: addCSRFToken(),
                 contentType: "application/json",
                 success: (response) => {
                     $("#table-country").DataTable().ajax.reload();
@@ -266,38 +295,31 @@ function deleteCountry(id) {
                 error: (error) => {
                     console.log(error); 
                 }
-            })
-        Swal.fire({
-            title: "Deleted!",
-            text: "Country has been deleted.",
-            icon: "success"
-        });
+            });
+            Swal.fire({
+                title: "Deleted!",
+                text: "Country has been deleted.",
+                icon: "success"
+            });
         }
     });
-};
+}
+
 
 // Validations for Country Code Create
-function validationsCountryCodeCreate(code) {
+function validationsCountryCode(code) {
     if (code === "") {
         return "Country Code Must Not Blank!";
     } else if (code.length !== 2) {
-        return "Country Code Too Long!";
+        return "Country Code Must Consist of 2 Characters!";
     } else {
         return "LFG!";
     }
 }
 
-// Validations for Country Code Update
-function validationsCountryCodeUpdate(code) {
-    if (code.length > 2 || code.length === 1) {
-        return "Cannot Update Country Code!";
-    } else {
-        return "LFG!"
-    }
-};
 
 // Validations for Country Name Create
-function validationsCountryNameCreate(name) {
+function validationsCountryName(name) {
     if (name === "") {
         return "Country Name Must Not Blank!";
     } else if (name.length > 50) {
@@ -305,13 +327,4 @@ function validationsCountryNameCreate(name) {
     } else {
         return "LFG!";
     }
-};
-
-// Validations for Country Name Update
-function validationsCountryNameUpdate(name) {
-    if (name.length > 50) {
-        return "Country Name Too Long!";
-    } else {
-        return "LFG!";
-    }
-};
+}

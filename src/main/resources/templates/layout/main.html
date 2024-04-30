@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
     <title>Main</title>
 
     <!-- Bootstrap -->
@@ -19,7 +22,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 
     <!-- Icon -->
-    <link rel="shortcut icon" href="/img/falling-star.png" type="image/x-icon">
+    <link rel="shortcut icon" th:href="@{/img/falling-star.png}" type="image/x-icon">
 
     <!-- Google Icon -->
     <link
@@ -52,6 +55,9 @@
 
     <!-- sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- CSRF Token -->
+    <script src="/js/addCSRFToken.js"></script>
 
     <!-- JS -->
     <div layout:fragment="script"></div>

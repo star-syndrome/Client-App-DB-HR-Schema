@@ -24,27 +24,33 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a
-                    class="nav-link"
-                    th:classappend="${isActive} == 'home' ? 'active fw-bold' : ''" 
-                    th:href="@{/}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a
-                    class="nav-link"
-                    th:classappend="${isActive} == 'region' ? 'active fw-bold' : ''" 
-                    th:href="@{/region}">Region</a>
-                </li>
-                <li class="nav-item">
-                    <a
-                    class="nav-link"
-                    th:classappend="${isActive} == 'country' ? 'active fw-bold' : ''" 
-                    th:href="@{/country}">Country</a>
-                </li>
+                    <li class="nav-item">
+                        <a
+                        class="nav-link"
+                        th:classappend="${isActive} == 'home' ? 'active fw-bold' : ''" 
+                        th:href="@{/home}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            th:classappend="${isActive} == 'region' ? 'active fw-bold' : ''" 
+                            th:href="@{/region}"
+                            sec:authorize="hasRole('ROLE_USER')"
+                            >Region
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            th:classappend="${isActive} == 'country' ? 'active fw-bold' : ''" 
+                            th:href="@{/country}"
+                            sec:authorize="hasRole('ROLE_ADMIN')"
+                            >Country
+                        </a>
+                    </li>
                 </ul>
-                <form class="d-flex" role="search">
-                <button class="btn btn-outline-danger" type="submit">Sign out</button>
+                <form class="d-flex" th:action="@{/logout}" th:method="POST">
+                <button class="btn btn-danger" type="submit">Sign Out</button>
                 </form>
             </div>
             </div>

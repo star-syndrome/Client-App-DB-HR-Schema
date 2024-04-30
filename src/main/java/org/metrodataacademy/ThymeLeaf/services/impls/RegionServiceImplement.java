@@ -33,23 +33,23 @@ public class RegionServiceImplement implements RegionService {
     }
 
     @Override
-    public RegionResponse createRegion(CreateRegionRequest regionRequest) {
-        return restTemplate
-        .exchange(
-            url + "/create",
-            HttpMethod.POST,
-            new HttpEntity<CreateRegionRequest>(regionRequest),
-            RegionResponse.class)
-            .getBody();
-    }
-
-    @Override
     public RegionResponse getById(Integer id) {
         return restTemplate
         .exchange(
             url + "/" + id,
             HttpMethod.GET,
             null,
+            RegionResponse.class)
+            .getBody();
+    }
+
+    @Override
+    public RegionResponse createRegion(CreateRegionRequest regionRequest) {
+        return restTemplate
+        .exchange(
+            url + "/create",
+            HttpMethod.POST,
+            new HttpEntity<CreateRegionRequest>(regionRequest),
             RegionResponse.class)
             .getBody();
     }

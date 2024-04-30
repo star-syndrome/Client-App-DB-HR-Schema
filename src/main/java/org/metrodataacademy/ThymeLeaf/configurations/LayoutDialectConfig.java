@@ -12,5 +12,4 @@ public class LayoutDialectConfig {
     public LayoutDialect layoutDialect() {
         return new LayoutDialect();
     }
-    
 }

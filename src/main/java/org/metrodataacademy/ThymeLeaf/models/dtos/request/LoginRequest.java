@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateCountryRequest {
+public class LoginRequest {
     
-    private String code;
-    private String name;
-    private Integer regionId;
+    private String username;
+    private String password;
 }

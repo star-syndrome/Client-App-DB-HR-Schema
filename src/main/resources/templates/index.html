@@ -10,8 +10,11 @@
   </head>
   <body>
     <!-- Content -->
-    <section class="container ms-5 mt-3" layout:fragment="content">
-      <h1 class="fw-bold">Welcome To <span th:text="${name}"></span> Web!</h1>
+    <section
+      class="container ms-5 mt-3"
+      layout:fragment="content"
+      sec:authorize="isAuthenticated()">
+      <h1 class="fw-bold">Hi <span sec:authentication="name"></span>, <br>Welcome to Star Syndrome Web!</h1>
     </section>
   </body>
 </html>

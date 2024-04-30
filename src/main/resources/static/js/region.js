@@ -6,14 +6,14 @@ $(document).ready(() => {
             dataSrc: "",
         },
         columnDefs: [
-            {className: "text-center", targets: "_all", searchable: false, orderable: false}
+            {className: "text-center", targets: "_all", searchable: true, orderable: true}
         ],
         order: [[1, 'asc']],
         columns: [
             {data: "id"},
             {data: "name"},
             {data: null,
-            render: (data) =>{
+            render: (data) => {
                 return /*html*/ `
                 <div class="d-flex m-auto gap-4 justify-content-center">
                     <button
@@ -77,6 +77,7 @@ $("#create-region").click((e) => {
             type: "POST",
             url: "/api/region/create",
             dataType: "JSON",
+            beforeSend: addCSRFToken(),
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({
                 name: valueName
@@ -122,7 +123,7 @@ function findById(id) {
             console.log(error);
         }
     });
-};
+}
 
 // Get Data Region for Update
 function beforeUpdateRegion(id) {
@@ -139,7 +140,7 @@ function beforeUpdateRegion(id) {
             console.log(error);
         }
     });
-};
+}
 
 // Update Region
 $("#update-region").click((e) => { 
@@ -162,6 +163,7 @@ $("#update-region").click((e) => {
             type: "PUT",
             url: "/api/region/update/"+ valueId,
             dataType: "JSON",
+            beforeSend: addCSRFToken(),
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({
                 name: valueName
@@ -209,6 +211,7 @@ function deleteRegion(id) {
                 type: "DELETE",
                 url: "/api/region/" + id,
                 dataType: "JSON",
+                beforeSend: addCSRFToken(),
                 contentType: "application/json",
                 success: (response) => {
                     $("#table-region").DataTable().ajax.reload();
@@ -216,15 +219,15 @@ function deleteRegion(id) {
                 error: (error) => {
                     console.log(error); 
                 }
-            })
-        Swal.fire({
-            title: "Deleted!",
-            text: "Region has been deleted.",
-            icon: "success"
-        });
+            });
+            Swal.fire({
+                title: "Deleted!",
+                text: "Region has been deleted.",
+                icon: "success"
+            });
         }
     });
-};
+}
 
 // Validations for Region Name
 function validationsRegionName(name) {
@@ -235,4 +238,4 @@ function validationsRegionName(name) {
     } else {
         return "LFG!"
     }
-};
+}
