@@ -10,9 +10,12 @@
 </head>
 <body>
     <!-- Card -->
-    <div class="container mt-5 m-auto d-flex justify-content-center" layout:fragment="content">
+    <div
+        class="container mt-5 m-auto d-flex justify-content-center"
+        layout:fragment="content">
         <div class="card text-center border border-dark border-3 rounded-3">
-            <div class="card-header fw-bold border-bottom border-3 border-dark"><h3 class="m-auto fw-bold">Adding a Region</h3>
+            <div class="card-header fw-bold border-bottom border-3 border-dark">
+                <h3 class="m-auto fw-bold">Adding a Region</h3>
             </div>
                 <div class="card-body">
                     <form
@@ -23,16 +26,17 @@
                         <!-- Region Name -->
                         <div class="input-group mb-3">
                             <span
-                            class="input-group-text border border-dark bg-light fw-bold"
-                            id="inputGroup-sizing-default">
-                            Region Name</span>
+                                class="input-group-text border border-dark bg-light fw-bold"
+                                id="inputGroup-sizing-default">
+                                Region Name
+                            </span>
                             <input
-                            type="text"
-                            class="form-control border border-dark"
-                            aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default"
-                            th:field="*{name}"
-                            required>
+                                type="text"
+                                class="form-control border border-dark"
+                                aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default"
+                                th:field="*{name}"
+                                required>
                         </div>
 
                         <div class="d-flex gap-3">
@@ -41,7 +45,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
         </div>
+    </div>
 </body>
 </html>

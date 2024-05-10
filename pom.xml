@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.metrodataacademy</groupId>
-	<artifactId>ThymeLeaf</artifactId>
+	<artifactId>Thymeleaf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ThymeLeaf</name>
+	<name>Thymeleaf</name>
 	<description>Spring Boot Project Metrodata Academy</description>
 	<properties>
 		<java.version>1.8</java.version>

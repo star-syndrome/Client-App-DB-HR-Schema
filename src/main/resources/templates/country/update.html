@@ -21,40 +21,40 @@
                         th:method="PUT"
                         th:object="${country}">
                         <div class="d-flex flex-wrap m-auto">
-
                             <!-- Country Code -->
                             <div class="input-group mb-3">
                                 <span
-                                class="input-group-text border border-dark bg-light fw-bold"
-                                id="inputGroup-sizing-default">
-                                Country Code</span>
+                                    class="input-group-text border border-dark bg-light fw-bold"
+                                    id="inputGroup-sizing-default">
+                                    Country Code
+                                </span>
                                 <input
-                                type="text"
-                                class="form-control border border-dark"
-                                th:field="*{code}">
+                                    type="text"
+                                    class="form-control border border-dark"
+                                    th:field="*{code}">
                             </div>
     
                             <!-- Country Name -->
                             <div class="input-group mb-3">
                                 <span
-                                class="input-group-text border border-dark bg-light fw-bold"
-                                id="inputGroup-sizing-default">
-                                Country Name</span>
+                                    class="input-group-text border border-dark bg-light fw-bold"
+                                    id="inputGroup-sizing-default">
+                                    Country Name
+                                </span>
                                 <input
-                                type="text"
-                                class="form-control border border-dark"
-                                aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default"
-                                th:field="*{name}">
+                                    type="text"
+                                    class="form-control border border-dark"
+                                    aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default"
+                                    th:field="*{name}">
                             </div> 
                         </div>
                             <div class="d-flex gap-3">
                                 <a href="/country" class="btn btn-secondary">Back</a>
-                                <button type="submit" class="btn btn-info">Update
-                        </button>
-                    </div>
-                </form>
-            </div>
+                                <button type="submit" class="btn btn-info">Update</button>
+                            </div>
+                    </form>
+                </div>
         </div>
     </div>
 </body>

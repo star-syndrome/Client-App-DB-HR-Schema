@@ -5,11 +5,16 @@
 }
 
 body {
+    background-image: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(153,202,251,1) 100.2% );
+}
+
+
+.body-auth{
     background-image: radial-gradient(circle, rgba(169,194,227,1) 15%, rgba(255,247,205,1) 85%)
 }
 
 .navbar {
-    background-image: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(198,255,199,1) 30%, rgba(198,255,199,1) 70%, rgba(0,212,255,1) 100%);
+    background-image: linear-gradient(to bottom, #a3bded 0%, #6991c7 100%);
 }
 
 .card {
@@ -17,5 +22,9 @@ body {
 }
 
 .modal-content {
+    background-image: radial-gradient(circle, rgba(126,63,251,1) 0%, rgba(70,252,226,1) 100%);
+}
+
+.nav-profile, .card-footer {
     background-image: radial-gradient(circle, rgba(126,63,251,1) 0%, rgba(70,252,226,1) 100%);
 }

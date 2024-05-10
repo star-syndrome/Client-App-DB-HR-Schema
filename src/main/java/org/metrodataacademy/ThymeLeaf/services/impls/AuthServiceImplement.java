@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.metrodataacademy.Thymeleaf.models.dtos.request.LoginRequest;
+import org.metrodataacademy.Thymeleaf.models.dtos.request.RegistrationRequest;
 import org.metrodataacademy.Thymeleaf.models.dtos.response.LoginResponse;
+import org.metrodataacademy.Thymeleaf.models.dtos.response.ProfileResponse;
 import org.metrodataacademy.Thymeleaf.services.AuthService;
 import org.metrodataacademy.Thymeleaf.utils.AuthSessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,13 +30,13 @@ public class AuthServiceImplement implements AuthService{
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String url = "http://localhost:8080/auth/login";
+    private final String url = "http://localhost:8080/auth";
 
     @Override
     public Boolean login(LoginRequest loginRequest) {
         try {
             ResponseEntity<LoginResponse> res = restTemplate.exchange(
-                url,
+                url + "/login",
                 HttpMethod.POST,
                 new HttpEntity<>(loginRequest),
                 LoginResponse.class
@@ -54,6 +56,20 @@ public class AuthServiceImplement implements AuthService{
         return false;
     }
     
+    @Override
+    public ProfileResponse registration(RegistrationRequest registrationRequest) {
+        try {
+            return restTemplate.exchange(
+                url + "/registration",
+                HttpMethod.POST,
+                new HttpEntity<RegistrationRequest>(registrationRequest),
+                ProfileResponse.class)
+                .getBody();  
+        } catch (Exception e) {
+            log.error("Error: {}", e.getMessage());
+            throw e;
+        }
+    }
 
     public void setPrinciple(LoginResponse loginResponse, String password) {
         List<SimpleGrantedAuthority> authorities = loginResponse.getRoles().stream()

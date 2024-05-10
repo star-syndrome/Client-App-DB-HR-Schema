@@ -14,6 +14,8 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.authorizeRequests(auth -> 
         auth
+            .antMatchers("/css/**", "/img/**", "/js/**")
+            .permitAll()
             .antMatchers("/auth/**")
             .permitAll()
             .anyRequest()

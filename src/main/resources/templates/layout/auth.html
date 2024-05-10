@@ -6,7 +6,7 @@
 
     <meta name="_csrf" th:content="${_csrf.token}">
     <meta name="_csrf_header" th:content="${_csrf.headerName}">
-    <title>Main</title>
+    <title>Auth Layout</title>
 
     <!-- Bootstrap -->
     <link
@@ -14,9 +14,6 @@
     rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
     crossorigin="anonymous">
-
-    <!-- Data Tables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" />
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -30,9 +27,6 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <div th:replace="components/navbar :: navbar"></div>
-    
     <!-- Content -->
     <section layout:fragment="content"></section>
 
@@ -49,10 +43,7 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
         crossorigin="anonymous">
     </script>
-
-    <!-- Data Tables -->
-    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
-
+    
     <!-- sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

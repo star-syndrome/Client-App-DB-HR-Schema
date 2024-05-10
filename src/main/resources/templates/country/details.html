@@ -13,14 +13,14 @@
     <div class="container mt-5 d-flex justify-content-center" layout:fragment="content">
       <div class="card border border-dark border-3 rounded-3">
         <div class="card-header fw-bold fs-2 border-bottom border-3 border-dark text-center">
-          <h3>Country Details</h3></div>
+          <h3>Country Details</h3>
+        </div>
           <div class="card-body">
             <form
               th:action="@{/country/{id} (id=${country.id})}"
               th:method="PUT"
               th:object="${country}">
               <div class="d-flex flex-wrap m-auto">
-
                 <!-- Country ID -->
                 <div class="input-group mb-3">
                   <span

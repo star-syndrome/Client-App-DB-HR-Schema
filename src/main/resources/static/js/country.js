@@ -225,7 +225,7 @@ $("#update-country").click(function (e) {
         Swal.fire({
             position: "center",
             icon: "error",
-            title: validateCode,
+            title: validateName,
             showConfirmButton: false,
             timer: 1500
         });
