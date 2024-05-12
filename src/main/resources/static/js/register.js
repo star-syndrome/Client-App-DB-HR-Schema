@@ -26,8 +26,8 @@ $("#register-button").click(function (e) {
                     position: "center",
                     icon: "success",
                     title: "Registration Successful!",
-                    footer: '<a href="/auth/login"><b>Log in here!</b></a>',
-                    showConfirmButton: true
+                    html: '<a href="/auth/login"><b>Log in here!</b></a>',
+                    showConfirmButton: false
                 });
                 $("#regist-name").val("");
                 $("#regist-email").val("");
