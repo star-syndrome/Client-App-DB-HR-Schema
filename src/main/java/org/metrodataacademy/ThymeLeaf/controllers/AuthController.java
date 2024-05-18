@@ -1,5 +1,6 @@
 package org.metrodataacademy.Thymeleaf.controllers;
 
+import org.metrodataacademy.Thymeleaf.models.dtos.request.ForgotPasswordRequest;
 import org.metrodataacademy.Thymeleaf.models.dtos.request.LoginRequest;
 import org.metrodataacademy.Thymeleaf.models.dtos.request.RegistrationRequest;
 import org.metrodataacademy.Thymeleaf.services.AuthService;
@@ -50,5 +51,13 @@ public class AuthController {
     )
     public String registrationView(RegistrationRequest registrationRequest) {
         return "auth/registration";
+    }
+
+    @GetMapping(
+        path = "/forgotPassword",
+        produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public String forgotPasswordView(ForgotPasswordRequest forgotPasswordRequest) {
+        return "auth/forgotPassword";
     }
 }
