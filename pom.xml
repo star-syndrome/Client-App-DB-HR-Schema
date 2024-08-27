@@ -11,7 +11,7 @@
 	<groupId>org.metrodataacademy</groupId>
 	<artifactId>Thymeleaf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Thymeleaf</name>
+	<name>Client App</name>
 	<description>Spring Boot Project Metrodata Academy</description>
 	<properties>
 		<java.version>1.8</java.version>
