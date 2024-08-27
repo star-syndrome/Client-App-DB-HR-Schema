@@ -54,7 +54,7 @@ public class AuthController {
     }
 
     @GetMapping(
-        path = "/forgotPassword",
+        path = "/forgot-password",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
     public String forgotPasswordView(ForgotPasswordRequest forgotPasswordRequest) {

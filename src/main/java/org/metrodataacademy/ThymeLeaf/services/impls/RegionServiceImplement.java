@@ -25,7 +25,7 @@ public class RegionServiceImplement implements RegionService {
     public List<RegionResponse> getAll() {
         return restTemplate
         .exchange(
-            url + "/getAll",
+            url,
             HttpMethod.GET,
             null,
             new ParameterizedTypeReference<List<RegionResponse>>() {})
@@ -47,7 +47,7 @@ public class RegionServiceImplement implements RegionService {
     public RegionResponse createRegion(CreateRegionRequest regionRequest) {
         return restTemplate
         .exchange(
-            url + "/create",
+            url,
             HttpMethod.POST,
             new HttpEntity<CreateRegionRequest>(regionRequest),
             RegionResponse.class)
@@ -58,7 +58,7 @@ public class RegionServiceImplement implements RegionService {
     public RegionResponse updateRegion(Integer id, UpdateRegionRequest regionRequest) {
         return restTemplate
         .exchange(
-            url + "/update/" + id,
+            url + "/" + id,
             HttpMethod.PUT,
             new HttpEntity<UpdateRegionRequest>(regionRequest),
             RegionResponse.class)
@@ -69,7 +69,7 @@ public class RegionServiceImplement implements RegionService {
     public RegionResponse deleteRegion(Integer id) {
         return restTemplate
         .exchange(
-            url + "/delete/" + id,
+            url + "/" + id,
             HttpMethod.DELETE,
             null,
             RegionResponse.class)

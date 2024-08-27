@@ -61,7 +61,7 @@
 
 						<div class="dropdown-center">
 							<button
-								class="btn btn-secondary dropdown-toggle"
+								class="btn btn-outline-dark dropdown-toggle"
 								type="button"
 								data-bs-toggle="dropdown"
 								aria-expanded="false">
@@ -70,7 +70,7 @@
 							<ul class="dropdown-menu bg-info-subtle">
 								<li>
 									<a
-										class="nav-link text-center"
+										class="nav-link text-center fw-bold"
 										th:href="@{/profile}"
 										sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"
 										>Profile

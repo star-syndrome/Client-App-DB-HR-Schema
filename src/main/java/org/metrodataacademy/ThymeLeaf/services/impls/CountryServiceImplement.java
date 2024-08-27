@@ -25,7 +25,7 @@ public class CountryServiceImplement implements CountryService{
     public List<CountryResponse> getAll() {
         return restTemplate
         .exchange(
-            url + "/getAll",
+            url,
             HttpMethod.GET,
             null,
             new ParameterizedTypeReference<List<CountryResponse>>() {})
@@ -47,7 +47,7 @@ public class CountryServiceImplement implements CountryService{
     public CountryResponse createCountry(CreateCountryRequest countryRequest) {
         return restTemplate
         .exchange(
-            url + "/create",
+            url,
             HttpMethod.POST,
             new HttpEntity<CreateCountryRequest>(countryRequest),
             CountryResponse.class)
@@ -58,7 +58,7 @@ public class CountryServiceImplement implements CountryService{
     public CountryResponse updateCountry(Integer id, UpdateCountryRequest countryRequest) {
         return restTemplate
         .exchange(
-            url + "/update/" + id,
+            url + "/" + id,
             HttpMethod.PUT,
             new HttpEntity<UpdateCountryRequest>(countryRequest),
             CountryResponse.class)
@@ -68,7 +68,7 @@ public class CountryServiceImplement implements CountryService{
     @Override
     public CountryResponse deleteCountry(Integer id) {
         return restTemplate.exchange(
-            url + "/delete/" + id,
+            url + "/" + id,
             HttpMethod.DELETE,
             null,
             CountryResponse.class)

@@ -15,13 +15,13 @@
 			<div class="d-flex flex-wrap m-3 p-3 justify-content-between">
 				<h3>Manage Countries</h3>
 				<!-- Button trigger modal create -->
-                <button
-                    type="button"
-                    class="btn btn-success"
-                    data-bs-toggle="modal"
-                    data-bs-target="#create">
-                    Add Country
-                </button>
+				<button
+					type="button"
+					class="btn btn-success"
+					data-bs-toggle="modal"
+					data-bs-target="#create">
+					Add Country
+				</button>
 			</div>
 			<div class="container">
 				<table
@@ -30,7 +30,7 @@
 					<thead class="table-primary text-center">
 						<tr>
 							<th scope="col-1">NO</th>
-                            <th scope="col-2">CODE</th>
+							<th scope="col-2">CODE</th>
 							<th scope="col-4">NAME</th>
 							<th scope="col-5">ACTIONS</th>
 						</tr>
@@ -38,242 +38,285 @@
 				</table>
 			</div>
 
-            <!-- Modal Create -->
-            <div
-                class="modal fade"
-                id="create"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabindex="-1"
-                aria-labelledby="createLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content border border-dark border-3 rounded-3">
-                        <div class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
-                            <h1 class="modal-title fs-5 fw-bold" id="createLabel">
-                            Create of Country</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form>
-                            <div class="modal-body">
-                                <!-- Country Code -->
-                                <div class="input-group mb-3">
-                                    <span
-                                        class="input-group-text border border-dark bg-light fw-bold"
-                                        id="inputGroup-sizing-default">Country Code
-                                    </span>
-                                    <input
-                                        type="text"
-                                        class="form-control border border-dark"
-                                        id="create-code"
-                                        required>
-                                </div>
+			<!-- Modal Create -->
+			<div
+				class="modal fade"
+				id="create"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="createLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="createLabel">
+								Create of Country
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<form>
+							<div class="modal-body">
+								<!-- Country Code -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Country Code
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-code"
+										required />
+								</div>
 
-                                <!-- Country Name -->
-                                <div class="input-group mb-3">
-                                    <span
-                                        class="input-group-text border border-dark bg-light fw-bold"
-                                        id="inputGroup-sizing-default">Country Name
-                                    </span>
-                                    <input
-                                        type="text"
-                                        class="form-control border border-dark"
-                                        aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default"
-                                        id="create-name"
-                                        required>
-                                </div>
+								<!-- Country Name -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Country Name
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										aria-label="Sizing example input"
+										aria-describedby="inputGroup-sizing-default"
+										id="create-name"
+										required />
+								</div>
 
-                                <!-- Region -->
-                                <div class="input-group mb-3">
-                                    <label
-                                        class="input-group-text border-dark bg-light fw-bold"
-                                        for="create-region"
-                                        >Region
-                                    </label>
-                                    <select
-                                        class="form-select border border-dark"
-                                        id="create-region"
-                                        required>
+								<!-- Region -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="create-region"
+										>Region
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="create-region"
+										required>
+										<option value="" selected>Choose Region</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer border-top border-3 border-dark">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-bs-dismiss="modal">
+									Close
+								</button>
+								<button
+									type="button"
+									class="btn btn-primary"
+									id="create-country">
+									Save
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 
-                                        <option value="" selected>Choose Region</option>
-                                    </select>
-                                </div>
-                            </div>
-                                <div class="modal-footer border-top border-3 border-dark">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" id="create-country">Save</button>
-                                </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+			<!-- Modal Details -->
+			<div
+				class="modal fade"
+				id="details"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="detailsLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="detailsLabel">
+								Details of Country
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<!-- Country ID -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Country ID
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-id"
+									disabled />
+							</div>
 
-            <!-- Modal Details -->
-            <div
-                class="modal fade"
-                id="details"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabindex="-1"
-                aria-labelledby="detailsLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content border border-dark border-3 rounded-3">
-                        <div class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
-                            <h1 class="modal-title fs-5 fw-bold" id="detailsLabel">
-                            Details of Country</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                            <div class="modal-body">
-                                <!-- Country ID -->
-                                <div class="input-group mb-3">
-                                    <span
-                                        class="input-group-text border border-dark bg-light fw-bold"
-                                        id="inputGroup-sizing-default">
-                                        Country ID
-                                    </span>
-                                    <input
-                                        type="text"
-                                        class="form-control border border-dark"
-                                        aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default"
-                                        id="details-id"
-                                        disabled>
-                                </div>
+							<!-- Country Code -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Country Code
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-code"
+									disabled />
+							</div>
 
-                                <!-- Country Code -->
-                                <div class="input-group mb-3">
-                                    <span
-                                        class="input-group-text border border-dark bg-light fw-bold"
-                                        id="inputGroup-sizing-default">
-                                        Country Code
-                                    </span>
-                                    <input
-                                        type="text"
-                                        class="form-control border border-dark"
-                                        id="details-code"
-                                        disabled>
-                                </div>
+							<!-- Country Name -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Country Name
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-name"
+									disabled />
+							</div>
 
-                                <!-- Country Name -->
-                                <div class="input-group mb-3">
-                                    <span
-                                        class="input-group-text border border-dark bg-light fw-bold"
-                                        id="inputGroup-sizing-default">
-                                        Country Name
-                                    </span>
-                                    <input
-                                        type="text"
-                                        class="form-control border border-dark"
-                                        aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default"
-                                        id="details-name"
-                                        disabled>
-                                </div> 
+							<!-- Region -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Region
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-region-name"
+									disabled />
+							</div>
+						</div>
+						<div class="modal-footer border-top border-3 border-dark">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 
-                                <!-- Region -->
-                                <div class="input-group mb-3">
-                                    <span
-                                        class="input-group-text border border-dark bg-light fw-bold"
-                                        id="inputGroup-sizing-default">
-                                        Region
-                                    </span>
-                                    <input
-                                        type="text"
-                                        class="form-control border border-dark"
-                                        aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default"
-                                        id="details-region-name"
-                                        disabled>
-                                </div>
-                            </div>
-                            <div class="modal-footer border-top border-3 border-dark">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Modal Update -->
-            <div
-                class="modal fade"
-                id="update"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabindex="-1"
-                aria-labelledby="updateLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content border border-dark border-3 rounded-3">
-                        <div class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
-                            <h1 class="modal-title fs-5 fw-bold" id="updateLabel">
-                            Update of Country</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form>
-                            <div class="modal-body">
-                                <!-- Country ID -->
-                                <input type="hidden" id="update-id" disabled>
+			<!-- Modal Update -->
+			<div
+				class="modal fade"
+				id="update"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="updateLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="updateLabel">
+								Update of Country
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<form>
+							<div class="modal-body">
+								<!-- Country ID -->
+								<input type="hidden" id="update-id" disabled />
 
-                                <!-- Country Code -->
-                                <div class="input-group mb-3">
-                                    <span
-                                        class="input-group-text border border-dark bg-light fw-bold"
-                                        id="inputGroup-sizing-default">Country Code
-                                    </span>
-                                    <input
-                                        type="text"
-                                        class="form-control border border-dark"
-                                        id="update-code"
-                                        required>
-                                </div>
+								<!-- Country Code -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Country Code
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-code"
+										required />
+								</div>
 
-                                <!-- Country Name -->
-                                <div class="input-group mb-3">
-                                    <span
-                                        class="input-group-text border border-dark bg-light fw-bold"
-                                        id="inputGroup-sizing-default">Country Name
-                                    </span>
-                                    <input
-                                        type="text"
-                                        class="form-control border border-dark"
-                                        aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default"
-                                        id="update-name"
-                                        required>
-                                </div>
+								<!-- Country Name -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Country Name
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										aria-label="Sizing example input"
+										aria-describedby="inputGroup-sizing-default"
+										id="update-name"
+										required />
+								</div>
 
-                                <!-- Region -->
-                                <div class="input-group mb-3">
-                                    <label
-                                        class="input-group-text border-dark bg-light fw-bold"
-                                        for="update-region-name"
-                                        >Region
-                                    </label>
-                                    <select
-                                        class="form-select border border-dark"
-                                        id="update-region-name"
-                                        required>
-
-                                        <option value="" selected>Choose Region</option>
-                                    </select>
-                                </div>
-                            </div>
-                                <div class="modal-footer border-top border-3 border-dark">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" id="update-country">Save</button>
-                                </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            
-        </div>
-        <!-- JS -->
-        <div layout:fragment="script">
-        <script src="/js/country.js"></script>
-        </div>
+								<!-- Region -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="update-region-name"
+										>Region
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="update-region-name"
+										required>
+										<option value="" selected>Choose Region</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer border-top border-3 border-dark">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-bs-dismiss="modal">
+									Close
+								</button>
+								<button
+									type="button"
+									class="btn btn-primary"
+									id="update-country">
+									Save
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- JS -->
+		<div layout:fragment="script">
+			<script src="/js/country.js"></script>
+		</div>
 	</body>
 </html>

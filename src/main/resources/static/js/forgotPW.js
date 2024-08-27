@@ -24,7 +24,7 @@ $("#forgot-password").click(function (e) {
 			contentType: "application/json",
 			beforeSend: addCSRFToken(),
 			dataType: "JSON",
-			url: "http://localhost:8080/auth/forgotPassword",
+			url: "http://localhost:8080/auth/forgot-password",
 			data: JSON.stringify({
 				username: valueUsername,
 				newPassword: valueNewPassword,

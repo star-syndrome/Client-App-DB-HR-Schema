@@ -23,7 +23,7 @@ public class ProfileServiceImplement implements ProfileService {
     public ProfileResponse getUser() {
         return restTemplate
         .exchange(
-            url + "/get",
+            url,
             HttpMethod.GET,
             null,
             ProfileResponse.class)
@@ -34,7 +34,7 @@ public class ProfileServiceImplement implements ProfileService {
     public ProfileResponse updateUser(UpdateUserRequest userRequest) {
         return restTemplate
         .exchange(
-            url + "/update",
+            url,
             HttpMethod.PUT,
             new HttpEntity<UpdateUserRequest>(userRequest),
             ProfileResponse.class)
@@ -45,7 +45,7 @@ public class ProfileServiceImplement implements ProfileService {
     public ProfileResponse changePassword(ChangePasswordRequest passwordRequest) {
         return restTemplate
         .exchange(
-            url + "/changePassword",
+            url + "/change-password",
             HttpMethod.PUT,
             new HttpEntity<ChangePasswordRequest>(passwordRequest),
             ProfileResponse.class)

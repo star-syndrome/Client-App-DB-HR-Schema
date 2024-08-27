@@ -9,8 +9,7 @@ public class HomeController {
     
     @GetMapping
     public String home(Model model) {
-        model.addAttribute("isActive", "home");
-        return "index";
+        return "welcome";
     }
 
     @GetMapping(
