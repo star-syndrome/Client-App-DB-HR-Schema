@@ -1,6 +1,4 @@
-package org.metrodataacademy.ClientApp.models.entities;
-
-import java.util.Date;
+package org.metrodataacademy.ClientApp.models.dtos.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,18 +7,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Employee {
+public class UpdateEmployeeRequest {
     
-    private Integer id;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
-    private Date hireDate;
     private Integer salary;
     private Float commissionPct;
-    private Employee manager;
-    private Job job;
-    private Department department;
-    private User user;
+    private Integer manager_id;
+    private String job_id;
+    private Integer department_id;
 }
