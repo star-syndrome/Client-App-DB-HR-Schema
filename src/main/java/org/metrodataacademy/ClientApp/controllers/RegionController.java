@@ -29,7 +29,7 @@ public class RegionController {
     public String getAllRegion(Model model) {
         model.addAttribute("isActive", "region");
         model.addAttribute("regions", regionService.getAll());
-        return "region/dashboard";
+        return "pages/region";
     }
 
     @GetMapping(

@@ -15,7 +15,7 @@ public class UpdateEmployeeRequest {
     private String phoneNumber;
     private Integer salary;
     private Float commissionPct;
-    private Integer manager_id;
-    private String job_id;
-    private Integer department_id;
+    private Integer manager;
+    private Integer job;
+    private Integer department;
 }

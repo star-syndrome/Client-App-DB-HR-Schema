@@ -33,6 +33,17 @@ public class EmployeeServiceImplement implements EmployeeService{
     }
 
     @Override
+    public List<EmployeeResponse> getAllManager() {
+        return restTemplate
+        .exchange(
+            url + "/manager",
+            HttpMethod.GET,
+            null,
+            new ParameterizedTypeReference<List<EmployeeResponse>>() {})
+            .getBody();
+    }
+
+    @Override
     public EmployeeResponse getById(Integer id) {
         return restTemplate
         .exchange(

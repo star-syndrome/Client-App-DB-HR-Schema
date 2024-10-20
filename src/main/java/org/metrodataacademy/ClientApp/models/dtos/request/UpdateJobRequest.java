@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UpdateJobRequest {
     
+    private String code;
     private String title;
     private Integer minSalary;
     private Integer maxSalary;

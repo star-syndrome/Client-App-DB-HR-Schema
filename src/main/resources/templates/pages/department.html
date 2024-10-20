@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/main}">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Department</title>
+	</head>
+	<body>
+		<!-- Manage Department -->
+		<div
+			class="container bg-light pb-3 border border-dark border-3 rounded-5 mt-5 mb-5"
+			layout:fragment="content">
+			<div class="d-flex flex-wrap m-3 p-3 justify-content-between">
+				<h1 class="fw-bold">Manage Departments</h1>
+				<!-- Button trigger modal create -->
+				<button
+					type="button"
+					class="btn btn-success"
+					data-bs-toggle="modal"
+					data-bs-target="#create">
+					Add Department
+				</button>
+			</div>
+			<div class="container">
+				<table
+					class="table table-bordered table-striped table-hover text-center table-light"
+					id="table-department">
+					<thead class="table-primary text-center">
+						<tr>
+							<th scope="col-1">NO</th>
+							<th scope="col-6">NAME</th>
+							<th scope="col-5">ACTIONS</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+
+			<!-- Modal Create -->
+			<div
+				class="modal fade"
+				id="create"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="createLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="createLabel">
+								Create of Department
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<form>
+							<div class="modal-body">
+								<!-- Department ID -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Department ID
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-id"
+										maxlength="4"
+										required />
+								</div>
+
+								<!-- Name -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Name
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-name"
+										required />
+								</div>
+
+								<!-- Location -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="create-location"
+										>Location
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="create-location"
+										required>
+										<option value="" selected>Choose Location</option>
+									</select>
+								</div>
+
+								<!-- Manager -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="create-manager"
+										>Manager
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="create-manager"
+										required>
+										<option value="" selected>Choose Manager</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer border-top border-3 border-dark">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-bs-dismiss="modal">
+									Close
+								</button>
+								<button
+									type="button"
+									class="btn btn-primary"
+									id="create-department">
+									Save
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal Details -->
+			<div
+				class="modal fade"
+				id="details"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="detailsLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="detailsLabel">
+								Details of Department
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<!-- Department ID -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Department ID
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-id"
+									disabled />
+							</div>
+
+							<!-- Name -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Name
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-name"
+									disabled />
+							</div>
+
+							<!-- Location -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Location
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-location-street"
+									disabled />
+							</div>
+
+							<!-- Manager -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Manager
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-manager-name"
+									disabled />
+							</div>
+						</div>
+						<div class="modal-footer border-top border-3 border-dark">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal Update -->
+			<div
+				class="modal fade"
+				id="update"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="updateLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="updateLabel">
+								Update of Department
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<form>
+							<div class="modal-body">
+								<!-- Location ID -->
+								<input type="hidden" id="update-id" disabled />
+
+								<!-- Name -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Name
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-name" />
+								</div>
+
+								<!-- Location -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="update-location-street"
+										>Location
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="update-location-street"
+										required>
+										<option value="" selected>Choose Location</option>
+									</select>
+								</div>
+
+								<!-- Manager -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="update-manager-name"
+										>Manager
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="update-manager-name"
+										required>
+										<option value="" selected>Choose Manager</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer border-top border-3 border-dark">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-bs-dismiss="modal">
+									Close
+								</button>
+								<button
+									type="button"
+									class="btn btn-primary"
+									id="update-department">
+									Save
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- JS -->
+		<div layout:fragment="script">
+			<script src="/js/department.js"></script>
+		</div>
+	</body>
+</html>

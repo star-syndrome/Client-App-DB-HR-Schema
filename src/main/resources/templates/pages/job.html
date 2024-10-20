@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/main}">
+	layout:decorate="~{layouts/main}">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Country</title>
+		<title>Job</title>
 	</head>
 	<body>
-		<!-- Manage Countries -->
+		<!-- Manage Job -->
 		<div
-			class="container bg-light pb-3 border border-dark border-3 rounded-5 mt-5"
+			class="container bg-light pb-3 border border-dark border-3 rounded-5 mb-5 mt-5"
 			layout:fragment="content">
 			<div class="d-flex flex-wrap m-3 p-3 justify-content-between">
-				<h3>Manage Countries</h3>
+				<h1 class="fw-bold">Manage Jobs</h1>
 				<!-- Button trigger modal create -->
 				<button
 					type="button"
 					class="btn btn-success"
 					data-bs-toggle="modal"
 					data-bs-target="#create">
-					Add Country
+					Add Job
 				</button>
 			</div>
 			<div class="container">
 				<table
 					class="table table-bordered table-striped table-hover text-center table-light"
-					id="table-country">
+					id="table-job">
 					<thead class="table-primary text-center">
 						<tr>
 							<th scope="col-1">NO</th>
-							<th scope="col-2">CODE</th>
-							<th scope="col-4">NAME</th>
+							<th scope="col-6">TITLE</th>
 							<th scope="col-5">ACTIONS</th>
 						</tr>
 					</thead>
@@ -52,7 +51,7 @@
 						<div
 							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
 							<h1 class="modal-title fs-5 fw-bold" id="createLabel">
-								Create of Country
+								Create of Job
 							</h1>
 							<button
 								type="button"
@@ -62,12 +61,27 @@
 						</div>
 						<form>
 							<div class="modal-body">
-								<!-- Country Code -->
+								<!-- Job ID -->
 								<div class="input-group mb-3">
 									<span
 										class="input-group-text border border-dark bg-light fw-bold"
 										id="inputGroup-sizing-default"
-										>Country Code
+										>Job ID
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-id"
+										maxlength="10"
+										required />
+								</div>
+
+								<!-- Code -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Code
 									</span>
 									<input
 										type="text"
@@ -76,35 +90,46 @@
 										required />
 								</div>
 
-								<!-- Country Name -->
+								<!-- Title -->
 								<div class="input-group mb-3">
 									<span
 										class="input-group-text border border-dark bg-light fw-bold"
 										id="inputGroup-sizing-default"
-										>Country Name
+										>Title
 									</span>
 									<input
 										type="text"
 										class="form-control border border-dark"
-										aria-label="Sizing example input"
-										aria-describedby="inputGroup-sizing-default"
-										id="create-name"
+										id="create-title"
 										required />
 								</div>
 
-								<!-- Region -->
+								<!-- Minimum Salary -->
 								<div class="input-group mb-3">
-									<label
-										class="input-group-text border-dark bg-light fw-bold"
-										for="create-region"
-										>Region
-									</label>
-									<select
-										class="form-select border border-dark"
-										id="create-region"
-										required>
-										<option value="" selected>Choose Region</option>
-									</select>
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Minimum Salary
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-min"
+										required />
+								</div>
+
+								<!-- Maximum Salary -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Maximum Salary
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-max"
+										required />
 								</div>
 							</div>
 							<div class="modal-footer border-top border-3 border-dark">
@@ -114,10 +139,7 @@
 									data-bs-dismiss="modal">
 									Close
 								</button>
-								<button
-									type="button"
-									class="btn btn-primary"
-									id="create-country">
+								<button type="button" class="btn btn-primary" id="create-job">
 									Save
 								</button>
 							</div>
@@ -140,7 +162,7 @@
 						<div
 							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
 							<h1 class="modal-title fs-5 fw-bold" id="detailsLabel">
-								Details of Country
+								Details of Job
 							</h1>
 							<button
 								type="button"
@@ -149,12 +171,12 @@
 								aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<!-- Country ID -->
+							<!-- Job ID -->
 							<div class="input-group mb-3">
 								<span
 									class="input-group-text border border-dark bg-light fw-bold"
 									id="inputGroup-sizing-default">
-									Country ID
+									Job ID
 								</span>
 								<input
 									type="text"
@@ -165,12 +187,12 @@
 									disabled />
 							</div>
 
-							<!-- Country Code -->
+							<!-- Code -->
 							<div class="input-group mb-3">
 								<span
 									class="input-group-text border border-dark bg-light fw-bold"
 									id="inputGroup-sizing-default">
-									Country Code
+									Code
 								</span>
 								<input
 									type="text"
@@ -179,35 +201,45 @@
 									disabled />
 							</div>
 
-							<!-- Country Name -->
+							<!-- Title -->
 							<div class="input-group mb-3">
 								<span
 									class="input-group-text border border-dark bg-light fw-bold"
 									id="inputGroup-sizing-default">
-									Country Name
+									Title
 								</span>
 								<input
 									type="text"
 									class="form-control border border-dark"
-									aria-label="Sizing example input"
-									aria-describedby="inputGroup-sizing-default"
-									id="details-name"
+									id="details-title"
 									disabled />
 							</div>
 
-							<!-- Region -->
+							<!-- Minimum salary -->
 							<div class="input-group mb-3">
 								<span
 									class="input-group-text border border-dark bg-light fw-bold"
 									id="inputGroup-sizing-default">
-									Region
+									Minimum Salary
 								</span>
 								<input
 									type="text"
 									class="form-control border border-dark"
-									aria-label="Sizing example input"
-									aria-describedby="inputGroup-sizing-default"
-									id="details-region-name"
+									id="details-min"
+									disabled />
+							</div>
+
+							<!-- Maximum Salary -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Maximum Salary
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-max"
 									disabled />
 							</div>
 						</div>
@@ -237,7 +269,7 @@
 						<div
 							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
 							<h1 class="modal-title fs-5 fw-bold" id="updateLabel">
-								Update of Country
+								Update of Job
 							</h1>
 							<button
 								type="button"
@@ -247,52 +279,59 @@
 						</div>
 						<form>
 							<div class="modal-body">
-								<!-- Country ID -->
+								<!-- Job ID -->
 								<input type="hidden" id="update-id" disabled />
 
-								<!-- Country Code -->
+								<!-- Code -->
 								<div class="input-group mb-3">
 									<span
 										class="input-group-text border border-dark bg-light fw-bold"
 										id="inputGroup-sizing-default"
-										>Country Code
+										>Code
 									</span>
 									<input
 										type="text"
 										class="form-control border border-dark"
-										id="update-code"
-										required />
+										id="update-code" />
 								</div>
 
-								<!-- Country Name -->
+								<!-- Title -->
 								<div class="input-group mb-3">
 									<span
 										class="input-group-text border border-dark bg-light fw-bold"
 										id="inputGroup-sizing-default"
-										>Country Name
+										>Title
 									</span>
 									<input
 										type="text"
 										class="form-control border border-dark"
-										aria-label="Sizing example input"
-										aria-describedby="inputGroup-sizing-default"
-										id="update-name"
-										required />
+										id="update-title" />
 								</div>
 
-								<!-- Region -->
+								<!-- Minimum Salary -->
 								<div class="input-group mb-3">
-									<label
-										class="input-group-text border-dark bg-light fw-bold"
-										for="update-region-name"
-										>Region
-									</label>
-									<select
-										class="form-select border border-dark"
-										id="update-region-name"
-										required>
-										<option value="" selected>Choose Region</option>
-									</select>
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Minimum Salary
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-min" />
+								</div>
+
+								<!-- Maximum Salary -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Maximum Salary
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-max" />
 								</div>
 							</div>
 							<div class="modal-footer border-top border-3 border-dark">
@@ -302,10 +341,7 @@
 									data-bs-dismiss="modal">
 									Close
 								</button>
-								<button
-									type="button"
-									class="btn btn-primary"
-									id="update-country">
+								<button type="button" class="btn btn-primary" id="update-job">
 									Save
 								</button>
 							</div>
@@ -314,9 +350,10 @@
 				</div>
 			</div>
 		</div>
+
 		<!-- JS -->
 		<div layout:fragment="script">
-			<script src="/js/country.js"></script>
+			<script src="/js/job.js"></script>
 		</div>
 	</body>
 </html>

@@ -17,7 +17,7 @@
 							alt="Logo"
 							width="40"
 							height="36" />
-						Star Syndrome
+						SmartHR
 					</a>
 					<button
 						class="navbar-toggler"
@@ -55,6 +55,51 @@
 									th:href="@{/country}"
 									sec:authorize="hasRole('ROLE_ADMIN')"
 									>Country
+								</a>
+							</li>
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									th:classappend="${isActive} == 'location' ? 'active fw-bold' : ''"
+									th:href="@{/location}"
+									sec:authorize="hasRole('ROLE_ADMIN')"
+									>Location
+								</a>
+							</li>
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									th:classappend="${isActive} == 'department' ? 'active fw-bold' : ''"
+									th:href="@{/department}"
+									sec:authorize="hasRole('ROLE_ADMIN')"
+									>Department
+								</a>
+							</li>
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									th:classappend="${isActive} == 'job' ? 'active fw-bold' : ''"
+									th:href="@{/job}"
+									sec:authorize="hasRole('ROLE_ADMIN')"
+									>Job
+								</a>
+							</li>
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									th:classappend="${isActive} == 'employee' ? 'active fw-bold' : ''"
+									th:href="@{/employee}"
+									sec:authorize="hasRole('ROLE_ADMIN')"
+									>Employee
+								</a>
+							</li>
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									th:classappend="${isActive} == 'history' ? 'active fw-bold' : ''"
+									th:href="@{/history}"
+									sec:authorize="hasRole('ROLE_ADMIN')"
+									>History
 								</a>
 							</li>
 						</ul>

@@ -37,7 +37,7 @@ public class RestJobController {
         path = "/{id}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<JobResponse> getById(@PathVariable String id) {
+    public ResponseEntity<JobResponse> getById(@PathVariable Integer id) {
         return ResponseEntity.ok()
         .body(jobService.getById(id));
     }
@@ -56,7 +56,7 @@ public class RestJobController {
         produces = MediaType.APPLICATION_JSON_VALUE,
         consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<JobResponse> update(@PathVariable String id, @RequestBody UpdateJobRequest jobRequest) {
+    public ResponseEntity<JobResponse> update(@PathVariable Integer id, @RequestBody UpdateJobRequest jobRequest) {
         return ResponseEntity.ok()
         .body(jobService.updateJob(id, jobRequest));
     }
@@ -65,7 +65,7 @@ public class RestJobController {
         path = "/{id}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<JobResponse> delete(@PathVariable String id) {
+    public ResponseEntity<JobResponse> delete(@PathVariable Integer id) {
         return ResponseEntity.ok()
         .body(jobService.deleteJob(id));
     }

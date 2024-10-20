@@ -10,11 +10,11 @@ public interface JobService {
     
     List<JobResponse> getAll();
 
-    JobResponse getById(String id);
+    JobResponse getById(Integer id);
     
     JobResponse createJob(CreateJobRequest jobRequest);
 
-    JobResponse updateJob(String id, UpdateJobRequest obRequest);
+    JobResponse updateJob(Integer id, UpdateJobRequest obRequest);
 
-    JobResponse deleteJob(String id);
+    JobResponse deleteJob(Integer id);
 }

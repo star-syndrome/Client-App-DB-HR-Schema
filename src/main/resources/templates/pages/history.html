@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/main}">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>History</title>
+	</head>
+	<body>
+		<!-- Manage History -->
+		<div
+			class="container bg-light pb-3 border border-dark border-3 rounded-5 mb-5 mt-5"
+			layout:fragment="content">
+			<div class="d-flex flex-wrap m-3 p-3 justify-content-between">
+				<h1 class="fw-bold">Manage Histories</h1>
+				<!-- Button trigger modal create -->
+				<button
+					type="button"
+					class="btn btn-success"
+					data-bs-toggle="modal"
+					data-bs-target="#create">
+					Add History
+				</button>
+			</div>
+			<div class="container">
+				<table
+					class="table table-bordered table-striped table-hover text-center table-light"
+					id="table-history">
+					<thead class="table-primary text-center">
+						<tr>
+							<th scope="col-1">NO</th>
+							<th scope="col-2">START DATE</th>
+							<th scope="col-2">END DATE</th>
+							<th scope="col-2">DEPARTMENT</th>
+							<th scope="col-2">EMPLOYEE</th>
+							<th scope="col-2">JOB</th>
+							<th scope="col-1">ACTIONS</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+
+			<!-- Modal Create -->
+			<div
+				class="modal fade"
+				id="create"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="createLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="createLabel">
+								Create of History
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<form>
+							<div class="modal-body">
+								<!-- Employee -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="create-employee"
+										>Employee
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="create-employee"
+										required>
+										<option value="" selected>Choose Employee</option>
+									</select>
+								</div>
+
+								<!-- Job -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="create-job"
+										>Job
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="create-job"
+										required>
+										<option value="" selected>Choose Job</option>
+									</select>
+								</div>
+
+								<!-- Department -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="create-department"
+										>Department
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="create-department"
+										required>
+										<option value="" selected>Choose Department</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer border-top border-3 border-dark">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-bs-dismiss="modal">
+									Close
+								</button>
+								<button
+									type="button"
+									class="btn btn-primary"
+									id="create-history">
+									Save
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- JS -->
+		<div layout:fragment="script">
+			<script src="/js/history.js"></script>
+		</div>
+	</body>
+</html>

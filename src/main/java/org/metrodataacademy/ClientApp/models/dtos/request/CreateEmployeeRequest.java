@@ -9,14 +9,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CreateEmployeeRequest {
 
-    private Integer id;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
     private Integer salary;
     private Float commissionPct;
-    private Integer manager_id;
-    private String job_id;
-    private Integer department_id;
+    private Integer manager;
+    private Integer job;
+    private Integer department;
 }

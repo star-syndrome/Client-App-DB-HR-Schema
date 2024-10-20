@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/main}">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Location</title>
+	</head>
+	<body>
+		<!-- Manage Locations -->
+		<div
+			class="container bg-light pb-3 border border-dark border-3 rounded-5 mt-5 mb-5"
+			layout:fragment="content">
+			<div class="d-flex flex-wrap m-3 p-3 justify-content-between">
+				<h1 class="fw-bold">Manage Locations</h1>
+				<!-- Button trigger modal create -->
+				<button
+					type="button"
+					class="btn btn-success"
+					data-bs-toggle="modal"
+					data-bs-target="#create">
+					Add Location
+				</button>
+			</div>
+			<div class="container">
+				<table
+					class="table table-bordered table-striped table-hover text-center table-light"
+					id="table-location">
+					<thead class="table-primary text-center">
+						<tr>
+							<th scope="col-1">NO</th>
+							<th scope="col-4">STREET ADDRESS</th>
+							<th scope="col-3">CITY</th>
+							<th scope="col-4">ACTIONS</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+
+			<!-- Modal Create -->
+			<div
+				class="modal fade"
+				id="create"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="createLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="createLabel">
+								Create of Location
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<form>
+							<div class="modal-body">
+								<!-- Location ID -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Location ID
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-id"
+										maxlength="4"
+										required />
+								</div>
+
+								<!-- Street Address -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Street Address
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-street" />
+								</div>
+
+								<!-- Postal Code -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Postal Code
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										aria-label="Sizing example input"
+										aria-describedby="inputGroup-sizing-default"
+										id="create-postal" />
+								</div>
+
+								<!-- City -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>City
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										aria-label="Sizing example input"
+										aria-describedby="inputGroup-sizing-default"
+										id="create-city"
+										required />
+								</div>
+
+								<!-- State Province -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>State Province
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										aria-label="Sizing example input"
+										aria-describedby="inputGroup-sizing-default"
+										id="create-province" />
+								</div>
+
+								<!-- Country -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="create-country"
+										>Country
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="create-country"
+										required>
+										<option value="" selected>Choose Country</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer border-top border-3 border-dark">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-bs-dismiss="modal">
+									Close
+								</button>
+								<button
+									type="button"
+									class="btn btn-primary"
+									id="create-location">
+									Save
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal Details -->
+			<div
+				class="modal fade"
+				id="details"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="detailsLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="detailsLabel">
+								Details of Location
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<!-- Location ID -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Location ID
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-id"
+									disabled />
+							</div>
+
+							<!-- Street Address -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Street Address
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-street"
+									disabled />
+							</div>
+
+							<!-- Postal Code -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Postal Code
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-postal"
+									disabled />
+							</div>
+
+							<!-- City -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									City
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-city"
+									disabled />
+							</div>
+
+							<!-- State Province -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									State Province
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-province"
+									disabled />
+							</div>
+
+							<!-- Country -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Country
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-country-name"
+									disabled />
+							</div>
+						</div>
+						<div class="modal-footer border-top border-3 border-dark">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal Update -->
+			<div
+				class="modal fade"
+				id="update"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="updateLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="updateLabel">
+								Update of Location
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<form>
+							<div class="modal-body">
+								<!-- Location ID -->
+								<input type="hidden" id="update-id" disabled />
+
+								<!-- Street Address -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Street Address
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-street" />
+								</div>
+
+								<!-- Postal Code -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Postal Code
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										aria-label="Sizing example input"
+										aria-describedby="inputGroup-sizing-default"
+										id="update-postal" />
+								</div>
+
+								<!-- City -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>City
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										aria-label="Sizing example input"
+										aria-describedby="inputGroup-sizing-default"
+										id="update-city"
+										required />
+								</div>
+
+								<!-- State Province -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>State Province
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										aria-label="Sizing example input"
+										aria-describedby="inputGroup-sizing-default"
+										id="update-province" />
+								</div>
+
+								<!-- Country -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="update-country-name"
+										>Country
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="update-country-name"
+										required>
+										<option value="" selected>Choose Country</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer border-top border-3 border-dark">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-bs-dismiss="modal">
+									Close
+								</button>
+								<button
+									type="button"
+									class="btn btn-primary"
+									id="update-location">
+									Save
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- JS -->
+		<div layout:fragment="script">
+			<script src="/js/location.js"></script>
+		</div>
+	</body>
+</html>

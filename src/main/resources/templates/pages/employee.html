@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/main}">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Employee</title>
+	</head>
+	<body>
+		<!-- Manage Employee -->
+		<div
+			class="container bg-light pb-3 border border-dark border-3 rounded-5 mb-5 mt-5"
+			layout:fragment="content">
+			<div class="d-flex flex-wrap m-3 p-3 justify-content-between">
+				<h1 class="fw-bold">Manage Employees</h1>
+				<!-- Button trigger modal create -->
+				<button
+					type="button"
+					class="btn btn-success"
+					data-bs-toggle="modal"
+					data-bs-target="#create">
+					Add Employee
+				</button>
+			</div>
+			<div class="container">
+				<table
+					class="table table-bordered table-striped table-hover text-center table-light"
+					id="table-employee">
+					<thead class="table-primary text-center">
+						<tr>
+							<th scope="col-1">NO</th>
+							<th scope="col-2">FIRST NAME</th>
+							<th scope="col-2">LAST NAME</th>
+							<th scope="col-2">HIRE DATE</th>
+							<th scope="col-2">EMAIL</th>
+							<th scope="col-2">PHONE NUMBER</th>
+							<th scope="col-1">ACTIONS</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+
+			<!-- Modal Create -->
+			<div
+				class="modal fade"
+				id="create"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="createLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="createLabel">
+								Create of Employee
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<form>
+							<div class="modal-body">
+								<!-- First Name -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>First Name
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-first-name" />
+								</div>
+
+								<!-- Last Name -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Last Name
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-last-name"
+										required />
+								</div>
+
+								<!-- Email -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Email
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-email"
+										required />
+								</div>
+
+								<!-- Phone Number -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Phone Number
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-phone"
+										required />
+								</div>
+
+								<!-- Salary -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Salary
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-salary"
+										required />
+								</div>
+
+								<!-- Commission PCT -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Commission PCT
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="create-commission" />
+								</div>
+
+								<!-- Manager -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="create-manager"
+										>Manager
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="create-manager"
+										required>
+										<option value="" selected>Choose Manager</option>
+									</select>
+								</div>
+
+								<!-- Job -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="create-job"
+										>Job
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="create-job"
+										required>
+										<option value="" selected>Choose Job</option>
+									</select>
+								</div>
+
+								<!-- Department -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="create-department"
+										>Department
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="create-department"
+										required>
+										<option value="" selected>Choose Department</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer border-top border-3 border-dark">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-bs-dismiss="modal">
+									Close
+								</button>
+								<button
+									type="button"
+									class="btn btn-primary"
+									id="create-employee">
+									Save
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal Details -->
+			<div
+				class="modal fade"
+				id="details"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="detailsLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="detailsLabel">
+								Details of Employee
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<!-- Employee ID -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Employee ID
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									id="details-id"
+									disabled />
+							</div>
+
+							<!-- First Name -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									First Name
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-first-name"
+									disabled />
+							</div>
+
+							<!-- Last Name -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Last Name
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-last-name"
+									disabled />
+							</div>
+
+							<!-- Email -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Email
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-email"
+									disabled />
+							</div>
+
+							<!-- Phone Number -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Phone Number
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-phone"
+									disabled />
+							</div>
+
+							<!-- Hire Date -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Hire Date
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-hire"
+									disabled />
+							</div>
+
+							<!-- Salary -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Salary
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-salary"
+									disabled />
+							</div>
+
+							<!-- Commission PCT -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Commission PCT
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-commission"
+									disabled />
+							</div>
+
+							<!-- Manager -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Manager
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-manager"
+									disabled />
+							</div>
+
+							<!-- Job -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Job
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-job"
+									disabled />
+							</div>
+
+							<!-- Department -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Department
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									id="details-department"
+									disabled />
+							</div>
+						</div>
+						<div class="modal-footer border-top border-3 border-dark">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal Update -->
+			<div
+				class="modal fade"
+				id="update"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="updateLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content border border-dark border-3 rounded-3">
+						<div
+							class="modal-header fw-bold fs-2 border-bottom border-3 border-dark">
+							<h1 class="modal-title fs-5 fw-bold" id="updateLabel">
+								Update of Employee
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<form>
+							<div class="modal-body">
+								<!-- Employee ID -->
+								<input type="hidden" id="update-id" disabled />
+
+								<!-- First Name -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>First Name
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-first-name" />
+								</div>
+
+								<!-- Last Name -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Last Name
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-last-name"
+										required />
+								</div>
+
+								<!-- Email -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Email
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-email"
+										required />
+								</div>
+
+								<!-- Phone Number -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Phone Number
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-phone" />
+								</div>
+
+								<!-- Hire Date -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Hire Date
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-hire"
+										disabled />
+								</div>
+
+								<!-- Salary -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Salary
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-salary" />
+								</div>
+
+								<!-- Commission PCT -->
+								<div class="input-group mb-3">
+									<span
+										class="input-group-text border border-dark bg-light fw-bold"
+										id="inputGroup-sizing-default"
+										>Commission PCT
+									</span>
+									<input
+										type="text"
+										class="form-control border border-dark"
+										id="update-commission" />
+								</div>
+
+								<!-- Manager -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="update-manager"
+										>Manager
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="update-manager"
+										required>
+										<option value="" selected>Choose Manager</option>
+									</select>
+								</div>
+
+								<!-- Job -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="update-job"
+										>Job
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="update-job"
+										required>
+										<option value="" selected>Choose Job</option>
+									</select>
+								</div>
+
+								<!-- Department -->
+								<div class="input-group mb-3">
+									<label
+										class="input-group-text border-dark bg-light fw-bold"
+										for="update-department"
+										>Department
+									</label>
+									<select
+										class="form-select border border-dark"
+										id="update-department"
+										required>
+										<option value="" selected>Choose Department</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer border-top border-3 border-dark">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-bs-dismiss="modal">
+									Close
+								</button>
+								<button
+									type="button"
+									class="btn btn-primary"
+									id="update-employee">
+									Save
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- JS -->
+		<div layout:fragment="script">
+			<script src="/js/employee.js"></script>
+		</div>
+	</body>
+</html>

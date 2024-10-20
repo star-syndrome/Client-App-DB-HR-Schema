@@ -31,7 +31,7 @@ public class CountryController {
     public String getAll(Model model) {
         model.addAttribute("isActive", "country");
         model.addAttribute("countries", countryService.getAll());
-        return "country/dashboard";
+        return "pages/country";
     }
 
     @GetMapping(

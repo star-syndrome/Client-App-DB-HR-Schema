@@ -10,6 +10,8 @@ public interface EmployeeService {
     
     List<EmployeeResponse> getAll();
 
+    List<EmployeeResponse> getAllManager();
+
     EmployeeResponse getById(Integer id);
     
     EmployeeResponse createEmployee(CreateEmployeeRequest employeeRequest);

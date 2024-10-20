@@ -33,7 +33,7 @@ public class JobServiceImplement implements JobService{
     }
 
     @Override
-    public JobResponse getById(String id) {
+    public JobResponse getById(Integer id) {
         return restTemplate
         .exchange(
             url + "/"+ id,
@@ -55,7 +55,7 @@ public class JobServiceImplement implements JobService{
     }
 
     @Override
-    public JobResponse updateJob(String id, UpdateJobRequest jobRequest) {
+    public JobResponse updateJob(Integer id, UpdateJobRequest jobRequest) {
         return restTemplate
         .exchange(
             url + "/" + id,
@@ -66,7 +66,7 @@ public class JobServiceImplement implements JobService{
     }
 
     @Override
-    public JobResponse deleteJob(String id) {
+    public JobResponse deleteJob(Integer id) {
         return restTemplate
         .exchange(
             url + "/" + id,

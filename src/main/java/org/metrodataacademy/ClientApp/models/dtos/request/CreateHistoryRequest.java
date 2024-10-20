@@ -11,5 +11,5 @@ public class CreateHistoryRequest {
 
     private Integer department;
     private Integer employee;
-    private String job;
+    private Integer job;
 }

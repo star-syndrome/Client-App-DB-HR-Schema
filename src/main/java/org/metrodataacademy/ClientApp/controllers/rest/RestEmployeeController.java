@@ -34,6 +34,15 @@ public class RestEmployeeController {
     }
 
     @GetMapping(
+        path = "/manager",
+        produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<List<EmployeeResponse>> getAllManager() {
+        return ResponseEntity.ok()
+        .body(employeeService.getAllManager());
+    }
+
+    @GetMapping(
         path = "/{id}",
         produces = MediaType.APPLICATION_JSON_VALUE
     )

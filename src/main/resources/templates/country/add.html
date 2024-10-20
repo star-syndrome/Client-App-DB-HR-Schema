@@ -1,81 +1,86 @@
 <!DOCTYPE html>
-<html 
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{layout/main}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Region</title>
-</head>
-<body>
-    <!-- Card -->
-    <div class="container mt-5 d-flex justify-content-center" layout:fragment="content">
-        <div class="card border border-dark border-3 rounded-3">
-            <div class="card-header fw-bold border-bottom border-3 border-dark text-center">
-                <h3 class="m-auto fw-bold">Adding a Country</h3></div>
-                <div class="card-body">
-                    <form
-                      th:action="@{/country}"
-                      method="post"
-                      th:object="${createCountryRequest}">
-                      <div class="d-flex flex-wrap m-auto">
-                          <!-- Country Code -->
-                          <div class="input-group mb-3">
-                              <span
-                                class="input-group-text border border-dark bg-light fw-bold"
-                                id="inputGroup-sizing-default">Country Code
-                              </span>
-                              <input
-                                type="text"
-                                class="form-control border border-dark"
-                                th:field="*{code}"
-                                required>
-                          </div>
+<html
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/main}">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Add Region</title>
+	</head>
+	<body>
+		<!-- Card -->
+		<div
+			class="container mt-5 d-flex justify-content-center"
+			layout:fragment="content">
+			<div class="card border border-dark border-3 rounded-3">
+				<div
+					class="card-header fw-bold border-bottom border-3 border-dark text-center">
+					<h3 class="m-auto fw-bold">Adding a Country</h3>
+				</div>
+				<div class="card-body">
+					<form
+						th:action="@{/country}"
+						method="post"
+						th:object="${createCountryRequest}">
+						<div class="d-flex flex-wrap m-auto">
+							<!-- Country Code -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default"
+									>Country Code
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									th:field="*{code}"
+									required />
+							</div>
 
-                          <!-- Country Name -->
-                          <div class="input-group mb-3">
-                              <span
-                                class="input-group-text border border-dark bg-light fw-bold"
-                                id="inputGroup-sizing-default">Country Name
-                              </span>
-                              <input
-                                type="text"
-                                class="form-control border border-dark"
-                                aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default"
-                                th:field="*{name}"
-                                required>
-                          </div>
+							<!-- Country Name -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default"
+									>Country Name
+								</span>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									th:field="*{name}"
+									required />
+							</div>
 
-                          <!-- Region ID -->
-                          <div class="input-group mb-3">
-                              <label
-                                class="input-group-text border-dark bg-light fw-bold"
-                                for="inputGroupSelect01">Region
-                              </label>
-                              <select
-                                class="form-select border border-dark"
-                                id="inputGroupSelect01"
-                                th:field="*{regionId}"
-                                required>
-                                  
-                                <option value="" selected>Choose Region</option>
-                                <option
-                                  th:each="region : ${regions}"
-                                  th:value="${region.id}"
-                                  th:text="${region.name}">
-                                </option>
-                              </select>
-                          </div>
-                          
-                          <div class="d-flex gap-3">
-                              <a href="/country" class="btn btn-secondary">Back</a>
-                              <button type="submit" class="btn btn-info">Add</button>
-                          </div>
-                      </div>
-                    </form>                 
-                </div>
-            </div>
-        </div>
-</body>
+							<!-- Region ID -->
+							<div class="input-group mb-3">
+								<label
+									class="input-group-text border-dark bg-light fw-bold"
+									for="inputGroupSelect01"
+									>Region
+								</label>
+								<select
+									class="form-select border border-dark"
+									id="inputGroupSelect01"
+									th:field="*{regionId}"
+									required>
+									<option value="" selected>Choose Region</option>
+									<option
+										th:each="region : ${regions}"
+										th:value="${region.id}"
+										th:text="${region.name}"></option>
+								</select>
+							</div>
+
+							<div class="d-flex gap-3">
+								<a href="/country" class="btn btn-secondary">Back</a>
+								<button type="submit" class="btn btn-info">Add</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

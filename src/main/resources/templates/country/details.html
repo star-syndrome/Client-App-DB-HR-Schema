@@ -1,90 +1,96 @@
 <!DOCTYPE html>
-<html 
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{layout/main}"
->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Country Details</title>
-</head>
-<body>
-    <!-- Card -->
-    <div class="container mt-5 d-flex justify-content-center" layout:fragment="content">
-      <div class="card border border-dark border-3 rounded-3">
-        <div class="card-header fw-bold fs-2 border-bottom border-3 border-dark text-center">
-          <h3>Country Details</h3>
-        </div>
-          <div class="card-body">
-            <form
-              th:action="@{/country/{id} (id=${country.id})}"
-              th:method="PUT"
-              th:object="${country}">
-              <div class="d-flex flex-wrap m-auto">
-                <!-- Country ID -->
-                <div class="input-group mb-3">
-                  <span
-                    class="input-group-text border border-dark bg-light fw-bold"
-                    id="inputGroup-sizing-default">
-                    Country ID</span>
-                  <input
-                    type="text"
-                    class="form-control border border-dark"
-                    aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default"
-                    th:field="*{id}"
-                    disabled>
-                </div>
+<html
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/main}">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Country Details</title>
+	</head>
+	<body>
+		<!-- Card -->
+		<div
+			class="container mt-5 d-flex justify-content-center"
+			layout:fragment="content">
+			<div class="card border border-dark border-3 rounded-3">
+				<div
+					class="card-header fw-bold fs-2 border-bottom border-3 border-dark text-center">
+					<h3>Country Details</h3>
+				</div>
+				<div class="card-body">
+					<form
+						th:action="@{/country/{id} (id=${country.id})}"
+						th:method="PUT"
+						th:object="${country}">
+						<div class="d-flex flex-wrap m-auto">
+							<!-- Country ID -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Country ID</span
+								>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									th:field="*{id}"
+									disabled />
+							</div>
 
-                <!-- Country Code -->
-                <div class="input-group mb-3">
-                  <span
-                    class="input-group-text border border-dark bg-light fw-bold"
-                    id="inputGroup-sizing-default">
-                    Country Code</span>
-                  <input
-                    type="text"
-                    class="form-control border border-dark"
-                    th:field="*{code}"
-                    disabled>
-                </div>
+							<!-- Country Code -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Country Code</span
+								>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									th:field="*{code}"
+									disabled />
+							</div>
 
-                <!-- Country Name -->
-                <div class="input-group mb-3">
-                  <span
-                    class="input-group-text border border-dark bg-light fw-bold"
-                    id="inputGroup-sizing-default">
-                    Country Name</span>
-                  <input
-                    type="text"
-                    class="form-control border border-dark"
-                    aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default"
-                    th:field="*{name}"
-                    disabled>
-                </div> 
+							<!-- Country Name -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Country Name</span
+								>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									th:field="*{name}"
+									disabled />
+							</div>
 
-                <!-- Region -->
-                <div class="input-group mb-3">
-                  <span
-                    class="input-group-text border border-dark bg-light fw-bold"
-                    id="inputGroup-sizing-default">
-                    Region</span>
-                  <input
-                    type="text"
-                    class="form-control border border-dark"
-                    aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default"
-                    th:field="*{regionName}"
-                    disabled>
-                </div>
-              </div>
-                <div class="d-flex gap-3">
-                  <a href="/country" class="btn btn-secondary">Back</a>
-                </div>
-            </form>
-          </div>
-        </div>
-    </div>
-</body>
+							<!-- Region -->
+							<div class="input-group mb-3">
+								<span
+									class="input-group-text border border-dark bg-light fw-bold"
+									id="inputGroup-sizing-default">
+									Region</span
+								>
+								<input
+									type="text"
+									class="form-control border border-dark"
+									aria-label="Sizing example input"
+									aria-describedby="inputGroup-sizing-default"
+									th:field="*{regionName}"
+									disabled />
+							</div>
+						</div>
+						<div class="d-flex gap-3">
+							<a href="/country" class="btn btn-secondary">Back</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
